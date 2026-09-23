@@ -4,9 +4,9 @@ Below are the columns/rows we decided to exclude from the model
 
 ## Odds
 
-We decided to exclude every column that 
+We decided to exclude the 
 
-## Red- and blue return
+## Return
 
 The columns `red_return` and `blue_return` are columns who's values reflect the payout a $1 bet would return. Including them would
 cause target leakage since they tell the model exactly who won (loser's return being 0), causing a 100% model prediction rate accuracy.
@@ -25,7 +25,7 @@ target weights and therefore fought outside one of the 13 regulartory weight cla
 1. It's an irrelevant outlier that might conflict with the standard classification we're planning to use
 2. It only consists of 72 rows out of 6000+
 
-## Difference Column Outliers
+## *__diff Column Outliers
 
 In the `rounds_diff` column we found one extreme outlier where the value was > 440. We excluded this due to it being an impossible data value when
 looking at either fighters records (i.e. total fights).

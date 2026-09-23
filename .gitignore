@@ -225,3 +225,8 @@ __marimo__/
 .streamlit/secrets.toml
 
 sklearn-env
+
+# catboost
+*.tsv
+*.tfevents
+catboost_training.json

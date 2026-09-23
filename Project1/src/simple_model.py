@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
 from sklearn.pipeline import make_pipeline
+from sklearn.model_selection import train_test_split
 
 ufc_dataset_df = pd.read_csv( "Project1/data/all_fights.csv" )
 cleaned_ufc_df = ufc_dataset_df.drop( columns=["red_return", "blue_return"] )
