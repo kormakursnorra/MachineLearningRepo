@@ -18,9 +18,41 @@ generalize best, compared with [benchmark]."
 
 Describe the problem and the data. Explain what you are trying to accomplish and what is the status quo and/or benchmark for this problem.
 
-
 \section{Process}
 Describe the process for finding the best model and justifying all decision. If you used other papers/sources for your decisions you need to reference them here.
+
+After having picked the dataset, we needed to verify it's quality and usability for a potential model. We conducted this part of the process by performing simple,
+but effective EDA which involved 
+
+\subsection{Data Cleaning}
+
+The initial steps to was to clean the data. 
+\textbf{The \*\_return Columns}
+The columns red\_return and blue\_return are columns who's values reflect the payout a \$ 1 bet would return. Including them would
+cause target leakage since they tell the model exactly who won (loser's return being 0), causing a 100\% model prediction rate accuracy.
+
+\textbf{Stances}
+
+We noticed in the red\_stance and blue\_stance columns that there were a few rows with faulty classifications ("Southpaw " with a trailing space and "Unknown")
+that needed to be excluded. We also found one other classification called "Open Stance", which describes an opposite stance matchup, which was only found
+in the blue\_stance column. Excluding it made sense on the premise that it conflicts with our own stance classifications.
+
+Catch Weight
+
+In the column weight\_class there is a value called "Catch Weight" which describes fights where one or both fighters missed their
+target weights and therefore fought outside one of the 13 regulartory weight classes. The reason for dropping this is because:
+
+1. It's an irrelevant outlier that might conflict with the standard classification we're planning to use
+2. It only consists of 72 rows out of 6000+
+
+\*\_diff Column Outliers
+
+In the rounds\_diff column we found one extreme outlier where the value was > 440. We excluded this due to it being an impossible data value when
+looking at either fighters records (i.e. total fights).
+
+In the reach\_diff column there is a single outlier where the reach difference was >186 caused by one of the fighters reach being measured 0 cm.
+This is an obivious error caused by a missing data value so we naturally excluded it.
+
 
 \section{Results}
 Report on the performance for the different models and hyperparameters. Essentially, take the numbers you got as output of your program and put them into a nice 
