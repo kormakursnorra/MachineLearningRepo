@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{hyperref}
 
 
 \title{Supervised Learning - Report}
@@ -12,40 +13,48 @@
 
 \section{Introduction}
 
-Template introduction paragraph:
-"Given [features] describing [each observation], we aim to predict [label] for new, unseen [observations], and to determine which model and hyperparameters 
-generalize best, compared with [benchmark]."
+The sport of mixed-martial arts (MMA) is widely regarded as one of the most unpredicatable- and dynamic sports one can spectacte. A sudden knockout, freak injury or a single mistake
+giving way to a submission, it's a sport where anything, at any moment, can happen. An MMA bout is just as likely to be a controlled, one-sided domination as it is an explosive
+war of violence and unpredicatability.\par
+The UFC (Ultimate Fighting Championship) is currently the largest professional MMA organization with an extensive record of fights spanning across its 30+ years of existence. With such a 
+long and lustrious history, finding a suitable dataset was not a a difficult task. \href{https://www.kaggle.com/datasets/anthonysz/ufc-fight-data-2026/data}{Kaggle, UFC Fight Data - 2026} 
+became this chosen dataset.\par
+With records dating back to March 2010 all the way to May of this year, it covers over 7000 fights and includes 57 features that describe each fighters stats., 
+physical attributes and betting odds, and more. The set also includes a binary classifier on the winning figher (whether the figher in the red corner won or lost), which works as a great the predictor feature.\par
 
-Describe the problem and the data. Explain what you are trying to accomplish and what is the status quo and/or benchmark for this problem.
+Given this predictor feature we want to take note of the given baseline: As it stands, the red corner wins 58\% of the time against the blue corner. With this benchmark, the main goal of this project 
+then becomes two-fold:  
+\begin{itemize}
+    \item Develop a model that can outperform simple majority class baselines and accurately predict a UFC fight based purely on statistcal differences between the fighters.
+    \item See which attributes/features contribute the most to a outcome and by how much of a margin.
+\end{itemize}
 
 \section{Process}
 Describe the process for finding the best model and justifying all decision. If you used other papers/sources for your decisions you need to reference them here.
 
-After having picked the dataset, we needed to verify it's quality and usability for a potential model. We conducted this part of the process by performing simple,
-but effective EDA which involved 
+After having picked a candidate dataset, we needed to verify its quality and usability for a potential model. For this part of the process we conducted some simple,
+but effective EDA that would answer that. We first checked for any obivious outliers and/or missing data values, of which there were few and far between. Next 
 
 \subsection{Data Cleaning}
 
-The initial steps to was to clean the data. 
+After having conducted some initial pruning into the dataset and verified its usability we proceeded to a more extensive data cleaning.     
+
 \textbf{The \*\_return Columns}
-The columns red\_return and blue\_return are columns who's values reflect the payout a \$ 1 bet would return. Including them would
-cause target leakage since they tell the model exactly who won (loser's return being 0), causing a 100\% model prediction rate accuracy.
+The values of the red\_return and blue\_return columns reflect the payout a \$ 1 bet would return. Including them would cause target leakage since they tell the 
+model exactly who won (loser's return being 0) and in turn lead to a 100\% model prediction rate accuracy; something we obiviously wanted to avoid.
 
 \textbf{Stances}
 
-We noticed in the red\_stance and blue\_stance columns that there were a few rows with faulty classifications ("Southpaw " with a trailing space and "Unknown")
-that needed to be excluded. We also found one other classification called "Open Stance", which describes an opposite stance matchup, which was only found
-in the blue\_stance column. Excluding it made sense on the premise that it conflicts with our own stance classifications.
+We noticed in the red\_stance and blue\_stance columns that there were a few rows with faulty classifications and missing data ("Switch " with a trailing space and "Unknown"),
+that needed to be excluded. We also found one other classification called "Open Stance", which describes an opposite stance matchup, which was only found in the blue\_stance column. 
+Since we already have the three main stances ("Orthodox", "Southpaw" and "Switch") it becomes a redundant categorical value and only creates conflict.
 
-Catch Weight
+\textbf{Catch Weight}
 
-In the column weight\_class there is a value called "Catch Weight" which describes fights where one or both fighters missed their
-target weights and therefore fought outside one of the 13 regulartory weight classes. The reason for dropping this is because:
+In the column weight\_class there we found the value "Catch Weight" which describes fights where one or both fighters missed their target weight and therefore fought outside 
+one of the 13 regulartory weight classes. This is by definition an outlier to the standard procedure of an MMA bout and should therefore be excluded.
 
-1. It's an irrelevant outlier that might conflict with the standard classification we're planning to use
-2. It only consists of 72 rows out of 6000+
-
-\*\_diff Column Outliers
+\textbf{Outliers in \*\_diff Columns}
 
 In the rounds\_diff column we found one extreme outlier where the value was > 440. We excluded this due to it being an impossible data value when
 looking at either fighters records (i.e. total fights).
