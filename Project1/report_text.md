@@ -4,7 +4,7 @@ Below are the columns/rows we decided to exclude from the model
 
 ## Odds
 
-We decided to exclude the 
+We decided to exclude the
 
 ## Return
 
@@ -25,7 +25,7 @@ target weights and therefore fought outside one of the 13 regulartory weight cla
 1. It's an irrelevant outlier that might conflict with the standard classification we're planning to use
 2. It only consists of 72 rows out of 6000+
 
-## *__diff Column Outliers
+## \*\_\_diff Column Outliers
 
 In the `rounds_diff` column we found one extreme outlier where the value was > 440. We excluded this due to it being an impossible data value when
 looking at either fighters records (i.e. total fights).
