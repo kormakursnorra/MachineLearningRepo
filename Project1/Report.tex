@@ -35,20 +35,28 @@ long and lustrious history, finding a suitable dataset was not a a difficult tas
 provided just that.\par
 
 With records dating back to March 2010 all the way to May of this year, it covers over 7000 fights and includes 57 features that describe each fighters stats., physical attributes and betting odds, and more.
-The set also includes a binary classifier on the winning figher (whether the figher in the red corner won or lost), which works as a great the predictor feature.\par
+The set also includes a binary classifier on the winning figher (whether the figher in the red corner won or lost), which works as a great predictor feature.\par
 
-Given this predictor feature we want to take note of the given baseline: As it stands, the red corner wins 58\% of the time against the blue corner. With this benchmark, the main goal of this project 
-then becomes two-fold:  
+Given this predictor feature we want to take note of the given baseline: the red figher has a win rate of 58\% against blue's 42\%, which is a significant gap.\par
+
+With this benchmark, the main goal of this project then becomes two-fold:  
 \begin{itemize}
-    \item Develop a model that can outperform simple majority class baselines and accurately predict a UFC fight based purely on statistcal differences between the fighters.
+    \item Develop a model that can outperform the simple majority class baselines and accurately predict a UFC fight based purely on statistcal differences between the fighters.
     \item See which attributes/features contribute the most to a outcome and by how much of a margin.
 \end{itemize}
 
 \section{Process}
 Describe the process for finding the best model and justifying all decision. If you used other papers/sources for your decisions you need to reference them here.
 
-After having picked a candidate dataset, we needed to verify its quality and usability for a potential model. For this part of the process we conducted some simple,
-but effective EDA that would answer that. We first checked for any obivious outliers and/or missing data values, of which there were few and far between. Next 
+After having picked a candidate dataset, we needed to verify its quality and usability for a potential model. For this part of the process we conducted some simple, but effective EDA that would answer 
+those questions.\par 
+
+We first checked for any obivious outliers and/or missing data values through its official site, of which there were few and fare between. Once that was done, we moved to briefly analysing the 
+datasets features. What peaked our interest during this step was that the dataset didn't just include each fighters raw statistics, but instead it took the difference between each fighters raw
+statistcal values, e.g., sig\_str\_diff (significant strikes difference between the red- and blue fighter). With the goal of the model being to predict a winner based on comparisons in such attributes, 
+having them pre-calculated was a.   
+
+\href{https://www.kaggle.com/code/tahaberkterekli/can-we-predict-ufc-fight-outcomes}{Can We Predict UFC Fight Outcomes?}
 
 \subsection{Data Cleaning}
 
@@ -106,9 +114,8 @@ number of buckets (age ranges) the accuracy of the model increased in parallel, 
 And since the dataset already included the age difference between fighters for each bout, which is the effect we're interested in, we decided to drop it entirely. \par
 
 \paragraph*{Feature Engineering}
-To continue with , the impact of age difference between two fighters varies significantly depending on where said difference occurs on the age-axis. A bout between a 25 year old 
-and a 28 year old is not as significant as one between a 32 year old and a 35 year old; and the data shows this. In title fights, we see that fighters over 35 have a collective 
-win-loss record of 50-75 across all weight classes:
+The impact of the age difference between two fighters varies significantly depending on where said difference occurs on the age-axis. In a bout between a 25 year old and a 28 year old, the age difference
+is not nearly as significant as one between a 32 year old and a 35 year old; and the data shows this. In just title fights, we see that fighters over 35 have a collective win-loss record of 50-75 across all weight classes:\par
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{media/title_winrate_by_age.png}
@@ -117,7 +124,7 @@ win-loss record of 50-75 across all weight classes:
 \end{figure}
 
 However this distribution skews much more towards the heavier weight classes (Middleweight, Light Heavyweight and Heavyweight), which shows that the ligher classes are a lot less forgiving
-on older fighters than the aforementioned ones:   
+on older fighters:   
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{media/title_winrate_by_age_division.png}
@@ -125,7 +132,7 @@ on older fighters than the aforementioned ones:
     \label{fig:ufc_winrate2}
 \end{figure}
 
-
+With 
 
 \section{Results}
 Report on the performance for the different models and hyperparameters. Essentially, take the numbers you got as output of your program and put them into a nice 
