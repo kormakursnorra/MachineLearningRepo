@@ -46,17 +46,28 @@ With this benchmark, the main goal of this project then becomes two-fold:
 \end{itemize}
 
 \section{Process}
-Describe the process for finding the best model and justifying all decision. If you used other papers/sources for your decisions you need to reference them here.
-
 After having picked a candidate dataset, we needed to verify its quality and usability for a potential model. For this part of the process we conducted some simple, but effective EDA that would answer 
 those questions.\par 
 
-We first checked for any obivious outliers and/or missing data values through its official site, of which there were few and fare between. Once that was done, we moved to briefly analysing the 
-datasets features. What peaked our interest during this step was that the dataset didn't just include each fighters raw statistics, but instead it took the difference between each fighters raw
-statistcal values, e.g., sig\_str\_diff (significant strikes difference between the red- and blue fighter). With the goal of the model being to predict a winner based on comparisons in such attributes, 
-having them pre-calculated was a.   
+\subsection{Brief EDA}
 
-\href{https://www.kaggle.com/code/tahaberkterekli/can-we-predict-ufc-fight-outcomes}{Can We Predict UFC Fight Outcomes?}
+We first checked for any obivious outliers and missing data values by skimming over its metadata on Kaggle, of which there were few and far between. For the next step, we moved to analysing the datasets features 
+and it came to us as a pleasant suprise that the dataset didn't just include each fighters raw statistics, but rather the difference between those values at the point before a given bout took place, 
+e.g., sig\_str\_diff (the difference between the red fighters and blue fighters total significant strikes). With the goal of the model being to predict a winner based on comparisons between such attributes, 
+having them pre-calculated lightened the work load significantly.\par   
+
+Before commiting to this particular dataset, we decided to look into other projects/research material that was conducted using the same dataset. One in particular struck as particularly interesting, that is:
+\href{https://www.kaggle.com/code/tahaberkterekli/can-we-predict-ufc-fight-outcomes}{Can We Predict UFC Fight Outcomes?}. Not only did the results of this article all but confirm to us our initial questions 
+regarding the value of the dataset, it also gave us a good way to validate our own work against theirs. More importantly however, is that it gave us a clear ceiling for the accuracy that any model can achieve
+and why. There are two cases that need to be examined:
+
+\textbf{Case 1:} A model that is only trained and tested on a dataset that includes a fighters individual statistics (age, significant strikes difference, etc.) is capped around the low-mid 60s for accurately 
+predicting an outcome; a remarkably high number for such an unpredicatable sport.
+
+\textbf{Case 2:} Including odds (red\_odds, blue\_odds, odds\_diff) as a feature of the model significantly improves its accuracy (~70\%), however since it's a feature that exists only as as product of external 
+assessment on a fighters favorability in a given matchup, it collides with the stated purpose of the project. 
+
+This becomes more relevant later on, but for now its good to have in mind as we proceed.
 
 \subsection{Data Cleaning}
 
@@ -64,27 +75,26 @@ After having conducted some initial pruning into the dataset and verified its us
 
 \subsubsection{Outliers \& Missing Data}
 
-\paragraph*{The \_return Columns}
-The values of the red\_return and blue\_return columns reflect the payout a \$1 bet would return. Including them would cause target leakage since they tell the 
+\paragraph*{The Return Columns}
+The values of the \verb|red\_return| and \verb|blue\_return| columns reflect the payout a \$1 bet would return. Including them would cause target leakage since they tell the 
 model exactly who won (loser's return being 0) and in turn lead to a 100\% model prediction rate accuracy; something we obiviously wanted to avoid.
 
 \paragraph*{Stance Outliers}
-We noticed in the red\_stance and blue\_stance columns that there were a few rows with faulty classifications and missing data ("Switch " with a trailing space and "Unknown"),
-that needed to be excluded. We also found one other classification called "Open Stance", which describes an opposite stance matchup, which was only found in the blue\_stance column. 
+We noticed in the \verb|red\_stance| and \verb|blue\_stance| columns that there were a few rows with faulty classifications and missing data ("Switch " with a trailing space and "Unknown"),
+that needed to be excluded. We also found one other classification called "Open Stance", which describes an opposite stance matchup, which was only found in the \verb|blue\_stance column|. 
 Since we already have the three main stances ("Orthodox", "Southpaw" and "Switch") it becomes a redundant categorical value and only creates conflict.
 
 \paragraph*{Weight Class Outliers}
-In the column weight\_class there we found the value "Catch Weight" which describes fights where one or both fighters missed their target weight and therefore fought outside 
+In the column \verb|weight\_class| there we found the value "Catch Weight" which describes fights where one or both fighters missed their target weight and therefore fought outside 
 one of the 12 regulartory weight classes. This is by definition an outlier to the standard procedure of an MMA bout and should therefore be excluded.
 
-\paragraph*{Outliers in \_diff Columns}
-In the rounds\_diff column we found one extreme outlier where the value was over 440. We excluded this due to it being an impossible data value when
+\paragraph*{Outliers in Difference Columns}
+In the \verb|rounds\_diff| column we found one extreme outlier where the value was over 440. We excluded this due to it being an impossible data value when
 looking at either fighters records (i.e. total fights).\\
-In the reach\_diff column there is a single outlier where the reach difference was over 186 caused by one of the fighters reach being measured 0 cm.
+In the \verb|reach\_diff| column there is a single outlier where the reach difference was over 186 caused by one of the fighters reach being measured 0 cm.
 This is an obivious error caused by a missing data value so we naturally excluded it.
-\subsubsection{Feature Selection- \& Engineering}
+\subsubsection{Classifications}
 
-\paragraph*{Classifications}
 We decided to break down the dataset into the following classes:
 
 \textbf{Gender:} MALE | FEMALE
@@ -109,13 +119,21 @@ We decided to break down the dataset into the following classes:
     \label{fig:stance_distribution}
 \end{figure}
 
-We initially included fighters age as classes, whose values were pooled into buckets of age ranges (e.g., 18 - 23) but a realization quickly arose. That is, as we increased the 
+We initially included fighters age as a classifier, whose values were pooled into buckets of age ranges (e.g., 18 - 23) but a realization quickly arose. That is, as we increased the 
 number of buckets (age ranges) the accuracy of the model increased in parallel, which suggest that there is too much variability in a fighters standing in even as little as a year. 
 And since the dataset already included the age difference between fighters for each bout, which is the effect we're interested in, we decided to drop it entirely. \par
 
-\paragraph*{Feature Engineering}
+\subsubsection{Feature Selection}
+Along with the aforementioned classifiers, we settled on inlcuding only the \verb|\_diff| features due to them providing the model the exact metrics needed to evaluate a fighters standing 
+when making a prediction. The one exception to this was the \verb|odds_diff| column, and like stated before, the issue with that feature is that it signals to the model which fighter 
+was favored going into a given matchup; biasing it to one outcome based only on external assessment rather than its own.\par
+
+But although that was the case, it still intrigued us to see what a model with that feature included would deliver. We therefore developed two sets of selected features, one with and one without
+the \verb|odds\_diff| feature; so we can see first hand how much it impacts the models prediction.    
+
+\subsubsection{Feature Engineering}
 The impact of the age difference between two fighters varies significantly depending on where said difference occurs on the age-axis. In a bout between a 25 year old and a 28 year old, the age difference
-is not nearly as significant as one between a 32 year old and a 35 year old; and the data shows this. In just title fights, we see that fighters over 35 have a collective win-loss record of 50-75 across all weight classes:\par
+is not nearly as significant as one between a 32 year old and a 35 year old; and the data shows this. In title fights, we see that fighters over 35 have a collective win-loss record of 50-75 across all weight classes:\par
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{media/title_winrate_by_age.png}
@@ -123,8 +141,8 @@ is not nearly as significant as one between a 32 year old and a 35 year old; and
     \label{fig:ufc_winrate1}
 \end{figure}
 
-However this distribution skews much more towards the heavier weight classes (Middleweight, Light Heavyweight and Heavyweight), which shows that the ligher classes are a lot less forgiving
-on older fighters:   
+The distribution is however very skewed, with the heavier weight classes (Middleweight, Light Heavyweight and Heavyweight) boasting a much better higher win-to-loss ratio than the lighter classes; showing that the 
+ligher classes are a lot less forgiving:   
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{media/title_winrate_by_age_division.png}
@@ -132,7 +150,12 @@ on older fighters:
     \label{fig:ufc_winrate2}
 \end{figure}
 
-With 
+Instead of including just the raw age difference, which doesn't take this disparity into account, we created a new feature called \verb|age_diff_x_avg| that numerically encodes how much \verb|age_diff's|
+effect should be amplified or dampened based on how old the pair is on average.
+
+\subsubsection{Data Split}
+When it came to splitting the data into dedicated training- and test sets, two questions arose: on which variable does the splitting occur and by how much. We ultimately landed on \verb|fight_date|
+as our splitting variable due to it providing us two complete datasets that include every selected feature, and selecting June 1st. 2023 as our splitting point gave us clean 80/20 split.   
 
 # TUMI 1 ===========================
 
