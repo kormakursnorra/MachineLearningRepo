@@ -2,7 +2,20 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{titlesec}
 
+\setlength{\parindent}{0pt}
+
+\titleformat{\paragraph}[block]
+  {\normalfont\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titlespacing*{\paragraph}
+  {0pt}      % left indent
+  {0.5em}    % space above
+  {0.5em}    % space below
 
 \title{Supervised Learning - Report}
 \author{Kormákur Snorrason}
@@ -19,8 +32,8 @@ war of violence and unpredicatability.\par
 The UFC (Ultimate Fighting Championship) is currently the largest professional MMA organization with an extensive record of fights spanning across its 30+ years of existence. With such a 
 long and lustrious history, finding a suitable dataset was not a a difficult task. \href{https://www.kaggle.com/datasets/anthonysz/ufc-fight-data-2026/data}{Kaggle, UFC Fight Data - 2026} 
 became this chosen dataset.\par
-With records dating back to March 2010 all the way to May of this year, it covers over 7000 fights and includes 57 features that describe each fighters stats., 
-physical attributes and betting odds, and more. The set also includes a binary classifier on the winning figher (whether the figher in the red corner won or lost), which works as a great the predictor feature.\par
+With records dating back to March 2010 all the way to May of this year, it covers over 7000 fights and includes 57 features that describe each fighters stats., physical attributes and betting odds, and more.
+The set also includes a binary classifier on the winning figher (whether the figher in the red corner won or lost), which works as a great the predictor feature.\par
 
 Given this predictor feature we want to take note of the given baseline: As it stands, the red corner wins 58\% of the time against the blue corner. With this benchmark, the main goal of this project 
 then becomes two-fold:  
@@ -37,30 +50,79 @@ but effective EDA that would answer that. We first checked for any obivious outl
 
 \subsection{Data Cleaning}
 
-After having conducted some initial pruning into the dataset and verified its usability we proceeded to a more extensive data cleaning.     
+After having conducted some initial pruning into the dataset and verified its usability we proceeded to a more extensive data cleaning.
 
-\textbf{The \*\_return Columns}
-The values of the red\_return and blue\_return columns reflect the payout a \$ 1 bet would return. Including them would cause target leakage since they tell the 
+\subsubsection{Outliers \& Missing Data}
+
+\paragraph*{The \_return Columns}
+The values of the red\_return and blue\_return columns reflect the payout a \$1 bet would return. Including them would cause target leakage since they tell the 
 model exactly who won (loser's return being 0) and in turn lead to a 100\% model prediction rate accuracy; something we obiviously wanted to avoid.
 
-\textbf{Stances}
-
+\paragraph*{Stance Outliers}
 We noticed in the red\_stance and blue\_stance columns that there were a few rows with faulty classifications and missing data ("Switch " with a trailing space and "Unknown"),
 that needed to be excluded. We also found one other classification called "Open Stance", which describes an opposite stance matchup, which was only found in the blue\_stance column. 
 Since we already have the three main stances ("Orthodox", "Southpaw" and "Switch") it becomes a redundant categorical value and only creates conflict.
 
-\textbf{Catch Weight}
-
+\paragraph*{Weight Class Outliers}
 In the column weight\_class there we found the value "Catch Weight" which describes fights where one or both fighters missed their target weight and therefore fought outside 
-one of the 13 regulartory weight classes. This is by definition an outlier to the standard procedure of an MMA bout and should therefore be excluded.
+one of the 12 regulartory weight classes. This is by definition an outlier to the standard procedure of an MMA bout and should therefore be excluded.
 
-\textbf{Outliers in \*\_diff Columns}
-
-In the rounds\_diff column we found one extreme outlier where the value was > 440. We excluded this due to it being an impossible data value when
-looking at either fighters records (i.e. total fights).
-
-In the reach\_diff column there is a single outlier where the reach difference was >186 caused by one of the fighters reach being measured 0 cm.
+\paragraph*{Outliers in \_diff Columns}
+In the rounds\_diff column we found one extreme outlier where the value was over 440. We excluded this due to it being an impossible data value when
+looking at either fighters records (i.e. total fights).\\
+In the reach\_diff column there is a single outlier where the reach difference was over 186 caused by one of the fighters reach being measured 0 cm.
 This is an obivious error caused by a missing data value so we naturally excluded it.
+\subsubsection{Feature Selection- \& Engineering}
+
+\paragraph*{Classifications}
+We decided to break down the dataset into the following classes:
+
+\textbf{Gender:} MALE | FEMALE
+
+\textbf{Weight Classes:}
+\begin{figure}[h]
+    \includegraphics[width=\linewidth]{media/weight_classes_and_limits.png}
+    \caption{ UFC Weight Classes}
+    \label{fig:ufc_weightclasses}
+\end{figure}
+
+\textbf{Stance:}
+\begin{itemize}
+    \item Orthodox: Left foot forward, favored by right-handed fighters.
+    \item Southpaw: Right foot forward, favored by left-handed fighters.
+    \item Switch: Both Orthodox and Southpaw.   
+\end{itemize}
+
+\begin{figure}[h]
+    \includegraphics[width=\linewidth]{media/fighter_stance_distribution.png}
+    \caption{ Fighters Stance Distribution }
+    \label{fig:stance_distribution}
+\end{figure}
+
+We initially included fighters age as classes, whose values were pooled into buckets of age ranges (e.g., 18 - 23) but a realization quickly arose. That is, as we increased the 
+number of buckets (age ranges) the accuracy of the model increased in parallel, which suggest that there is too much variability in a fighters standing in even as little as a year. 
+And since the dataset already included the age difference between fighters for each bout, which is the effect we're interested in, we decided to drop it entirely. \par
+
+\paragraph*{Feature Engineering}
+To continue with , the impact of age difference between two fighters varies significantly depending on where said difference occurs on the age-axis. A bout between a 25 year old 
+and a 28 year old is not as significant as one between a 32 year old and a 35 year old; and the data shows this. In title fights, we see that fighters over 35 have a collective 
+win-loss record of 50-75 across all weight classes:
+
+\begin{figure}[h]
+    \includegraphics[width=\linewidth]{media/title_winrate_by_age.png}
+    \caption{ UFC title fight win rate by age (all weight classes)}
+    \label{fig:ufc_winrate1}
+\end{figure}
+
+However this distribution skews much more towards the heavier weight classes (Middleweight, Light Heavyweight and Heavyweight), which shows that the ligher classes are a lot less forgiving
+on older fighters than the aforementioned ones:   
+
+\begin{figure}[h]
+    \includegraphics[width=\linewidth]{media/title_winrate_by_age_division.png}
+    \caption{ UFC title fight win rate by age \& division }
+    \label{fig:ufc_winrate2}
+\end{figure}
+
 
 
 \section{Results}
