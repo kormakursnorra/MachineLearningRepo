@@ -134,6 +134,60 @@ on older fighters:
 
 With 
 
+# TUMI 1 ===========================
+
+\paragraph*{Finding the right algorithm's for our models}
+some intro text
+
+\paragraph*{Logistic Regression}
+To establish a baseline for comparison, we will be comparing them to a simple logistic regression model.
+
+Why did we choose logistic regression as our baseline for accuracy?
+Since our data is split between \_diff features and other features, and the \_diff features are numeric, that is what logistic regression is built for. So for example, each unit of reach advantage shifts the odds of red winning by some amount.
+
+Another reason for using logistic regression is it's fast to train and does not take a lot of setup.
+
+A limitation of logistic regression is that it assumes a relatively simple relationship between the features and the log-odds of the outcome. It also does not automatically capture interactions between features. or example, maybe reach advantage has different effects based on what weight class the fight is in.
+
+\paragraph*{Random Forest}
+The reasons we chose random forest for one of our models are:
+
+\begin{itemize}
+    \item Handles the mix of numeric \_diff and categorical features without needing scaling, and works well with on-hot encoded categorical features.
+    \item A major benefit of random forests is that they can capture non-linear relationships and interactions automatically, for example, the takedown advantage matters a lot more when the weight difference between the fighters is larger.
+\end{itemize}
+
+\paragraph*{XGBoost}
+The reasons we chose XGBoost for one of our models are:
+\begin{itemize}
+    \item Like random forests, XGBoost can capture non-linear relationships and interactions. However, instead of averaging many independently trained trees, XGBoost builds trees sequentially, with each new tree attempting to correct errors made by the previous trees. Since our data set is not too big the training time for the models is not too long.
+    \item Captures non-linear relationships and interactions like random forest, but often extracts more predictive power from the same features because each new tree learns from the previous ones.
+\end{itemize}
+
+Cons for XGBoost
+\begin{itemize}
+    \item There are a lot of hyperparameters to tune, and if you don't tune them well the model can be prone to overfitting.
+    \item Requires one-hot encoding for categorical features, which can cause the numbers of features to blow up quite quickly.
+\end{itemize}
+
+Why include it: XGBoost provides a useful comparison with random forest because both can capture non-linear relationships and interactions, but they use different ensemble approaches.
+
+\paragraph*{CatBoost}
+The reasons we chose CatBoost for one of our models are:
+\begin{itemize}
+    \item Handles categorical features natively, instead of one-hot encoding, this is very useful since we have a lot of categorical features.
+    \item CatBoost can make use of categorical features directly and can capture relationships between categorical variables, such as red_stance and blue_stance. This has a big impact on real fight analysis,For example, the interaction between red_stance and blue_stance could potentially be relevant to fight outcomes.
+\end{itemize}
+
+Cons for CatBoost
+\begin{itemize}
+\item Is quite similar to XGBoost. It can be slower to train than some of the other models, particularly when using more complex settings.
+\end{itemize}
+
+Why include it: this gives a good way to test whether the native category handling matters, and a good way to find that out is compare XGBoost vs CatBoost.
+
+# TUMI 1 ===========================
+
 \section{Results}
 Report on the performance for the different models and hyperparameters. Essentially, take the numbers you got as output of your program and put them into a nice 
 form (plots, tables, ...) that makes them easier to interpret and shows, for example, how the choice of values for different hyperparameters influences the performance.
