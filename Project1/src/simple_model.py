@@ -87,7 +87,7 @@ all_features_df["r_match_wc_rank"] = all_features_df["r_match_wc_rank"].replace(
 
 ## == Benchmarking ==
 
-#Target
+# Target
 y = data_frame["red_winner"]
 
 # Temporal Split

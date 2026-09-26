@@ -1,0 +1,18 @@
+model,features,test_acc,test_auc,test_logloss,cv_auc,cv_acc,best_params,fit_seconds
+Majority class (always red),-,0.5557755775577558,0.5,0.6869123820735415,,,,
+Betting favorite,odds only,0.7042904290429043,0.7563211839072752,0.5808737261239402,,,,
+Logistic Regression,with odds,0.7023102310231023,0.7596591290107401,0.5839264610676117,0.7038737137809004,0.6557203389830508,"{'clf__C': 0.01, 'clf__penalty': 'l1', 'clf__solver': 'liblinear'}",3.0
+Random Forrest,with odds,0.699009900990099,0.7528438268750905,0.5886186086897373,0.6969455872415476,0.6574152542372882,"{'clf__max_depth': 5, 'clf__max_features': 0.5, 'clf__min_samples_leaf': 45, 'clf__n_estimators': 100}",40.6
+XGBClassifier,with odds,0.6963696369636964,0.754665887842221,0.5868929624557495,0.6990333336644445,0.6597457627118644,"{'clf__colsample_bytree': 1.0, 'clf__learning_rate': 0.01, 'clf__max_depth': 2, 'clf__n_estimators': 300, 'clf__subsample': 0.8}",23.1
+CatBoost,with odds,0.6963696369636964,0.7555103006003536,0.5850339326799968,0.6973780455052393,0.6561440677966102,"{'clf__depth': 4, 'clf__iterations': 200, 'clf__l2_leaf_reg': 3, 'clf__learning_rate': 0.03}",43.5
+KNeghborsClassifier,with odds,0.6666666666666666,0.7126949561117132,0.617525980767279,0.6438096439936413,0.6247881355932202,"{'clf__n_neighbors': 31, 'clf__p': 2, 'clf__weights': 'distance'}",2.6
+Logistic Regression,with odds,0.7023102310231023,0.7596591290107401,0.5839264610676117,0.7038737137809004,0.6557203389830508,"{'clf__C': 0.01, 'clf__penalty': 'l1', 'clf__solver': 'liblinear'}",2.7
+Random Forrest,with odds,0.699009900990099,0.7528438268750905,0.5886186086897373,0.6969455872415476,0.6574152542372882,"{'clf__max_depth': 5, 'clf__max_features': 0.5, 'clf__min_samples_leaf': 45, 'clf__n_estimators': 100}",40.0
+XGBClassifier,with odds,0.6963696369636964,0.754665887842221,0.5868929624557495,0.6990333336644445,0.6597457627118644,"{'clf__colsample_bytree': 1.0, 'clf__learning_rate': 0.01, 'clf__max_depth': 2, 'clf__n_estimators': 300, 'clf__subsample': 0.8}",26.3
+CatBoost,with odds,0.6963696369636964,0.7555103006003536,0.5850339326799968,0.6973780455052393,0.6561440677966102,"{'clf__depth': 4, 'clf__iterations': 200, 'clf__l2_leaf_reg': 3, 'clf__learning_rate': 0.03}",39.7
+KNeghborsClassifier,with odds,0.6666666666666666,0.7126949561117132,0.617525980767279,0.6438096439936413,0.6247881355932202,"{'clf__n_neighbors': 31, 'clf__p': 2, 'clf__weights': 'distance'}",2.1
+Logistic Regression,no odds,0.6105610561056105,0.6543272403849887,0.6502101523488144,0.6226747626782936,0.6065677966101696,"{'clf__C': 0.01, 'clf__penalty': 'l2', 'clf__solver': 'liblinear'}",1.0
+Random Forrest,no odds,0.6039603960396039,0.653467827609209,0.6581010635911406,0.6120633848334995,0.5913135593220339,"{'clf__max_depth': None, 'clf__max_features': 'log2', 'clf__min_samples_leaf': 45, 'clf__n_estimators': 300}",53.7
+XGBClassifier,no odds,0.5993399339933994,0.6456219360258071,0.6601078510284424,0.6073536928877262,0.6008474576271186,"{'clf__colsample_bytree': 0.8, 'clf__learning_rate': 0.01, 'clf__max_depth': 2, 'clf__n_estimators': 300, 'clf__subsample': 0.8}",9.2
+CatBoost,no odds,0.6118811881188119,0.6477625267794433,0.6557267325606143,0.6095621383555685,0.6012711864406779,"{'clf__depth': 4, 'clf__iterations': 200, 'clf__l2_leaf_reg': 3, 'clf__learning_rate': 0.03}",39.9
+KNeghborsClassifier,no odds,0.5973597359735974,0.6196189642576051,0.667024592433695,0.5668225161821967,0.5737288135593219,"{'clf__n_neighbors': 31, 'clf__p': 2, 'clf__weights': 'distance'}",1.9
