@@ -1,5 +1,5 @@
-#Imports
 import time
+import warnings
 from pathlib import Path
 
 import numpy as np
@@ -7,6 +7,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+from xgboost import XGBClassifier
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.pipeline import Pipeline
@@ -15,17 +16,16 @@ from xgboost import XGBClassifier
 from sklearn.linear_model import LogisticRegression
 from catboost import CatBoostClassifier
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.impute import SimpleImputer
-from sklearn.impute import SimpleImputer
+
+from sklearn.inspection import permutation_importance
 from sklearn.preprocessing import StandardScaler
 
-from xgboost import XGBClassifier
-from sklearn.neighbors import KNeighborsClassifier
 
 from sklearn.model_selection import GridSearchCV, TimeSeriesSplit
-from sklearn.metrics import accuracy_score, log_loss, roc_auc_score
+from sklearn.metrics import accuracy_score, log_loss, roc_auc_score, roc_curve
+from sklearn.calibration import calibration_curve
 
-## == Load Data == 
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 csv_path = Path.cwd().parent / "data" / "all_fights.csv"
 data_frame = pd.read_csv(csv_path)
@@ -51,7 +51,6 @@ data_frame["title_bout"] = (data_frame["title_bout"].astype(str).str.lower() == 
 data_frame["fight_date"] = pd.to_datetime(data_frame["fight_date"])
 data_frame = data_frame.sort_values("fight_date", kind="stable").reset_index(drop=True)
 
-# == Build Features ==
 SEED = 42
 DATE = "2023-06-01"
 SELECTION_METRIC = "roc_auc"
@@ -59,7 +58,6 @@ SELECTION_METRIC = "roc_auc"
 CAT_FEATURES = [
     "gender", "weight_class", "red_stance", "blue_stance"
 ]
-
 
 extra_features = CAT_FEATURES + [
     "red_age", "blue_age", "b_match_wc_rank", "r_match_wc_rank"
@@ -80,12 +78,11 @@ all_features_df["age_diff_x_avg"] = all_features_df["age_diff"] * all_features_d
 # Drop raw ages since we already have the affect
 all_features_df = all_features_df.drop(columns=["red_age", "blue_age"])
 
-# Replace instances of rank 20 (unranked) to 16 so ranking distribution is uniform 
-worst_rank = max(all_features_df[["b_match_wc_rank", "r_match_wc_rank"]].max().max(), 16) + 1
-all_features_df["b_match_wc_rank"] = all_features_df["b_match_wc_rank"].replace(worst_rank)
-all_features_df["r_match_wc_rank"] = all_features_df["r_match_wc_rank"].replace(worst_rank)
-
-## == Benchmarking ==
+# Replace instances of rank 20 (unranked) to 16 so ranking distribution is uniform
+new_worst_rank = 16
+worst_rank = all_features_df[["b_match_wc_rank", "r_match_wc_rank"]].max().max()
+all_features_df["b_match_wc_rank"] = all_features_df["b_match_wc_rank"].replace(to_replace=worst_rank, value=new_worst_rank)
+all_features_df["r_match_wc_rank"] = all_features_df["r_match_wc_rank"].replace(to_replace=worst_rank ,value=new_worst_rank)
 
 # Target
 y = data_frame["red_winner"]
@@ -101,8 +98,8 @@ scoring = {"roc_auc": "roc_auc", "accuracy": "accuracy", "neg_log_loss": "neg_lo
 
 majority = max(y_test.mean(), 1 - y_test.mean())
 
-# The lower number is the favorite (-250 beats +215, -150 beats -110). 
-# odds_diff = red_odds - blue_odds, so < 0 means red is favored. 
+# The lower number is the favorite (-250 beats +215, -150 beats -110).
+# odds_diff = red_odds - blue_odds, so < 0 means red is favored.
 # Whhen equal odds, default to red, the majority class.
 red_fav = (data_frame_test["red_odds"] <= data_frame_test["blue_odds"]).astype(int)
 n_ties = int((data_frame_test["red_odds"] == data_frame_test["blue_odds"]).sum())
@@ -117,6 +114,9 @@ def implied(o):
 p_red, p_blue = implied(data_frame_test["red_odds"]), implied(data_frame_test["blue_odds"])
 p = p_red / (p_red + p_blue)
 
+# Keep test-set probabilities so the Results section can plot ROC / calibration curves
+test_probas = {"Betting favorite": p}
+
 results = [
     {"model": "Majority class (always red)", "features": "-",
         "test_acc": majority, "test_auc": 0.5,
@@ -125,7 +125,7 @@ results = [
         "test_acc": favorite, "test_auc": roc_auc_score(y_test, p),
         "test_logloss": log_loss(y_test, p)},
 ]
-print(f"Pick'em fights in test set (equal odds, assigned to red): {n_ties}")
+print(f"Coin Flip fights in test set (equal odds, assigned to red): {n_ties}")
 
 # Split into with/without odds
 feature_sets = {
@@ -133,12 +133,11 @@ feature_sets = {
     "no odds": [c for c in all_features_df.columns if c != "odds_diff"],
 }
 
-cols_with_odds = [c for c in all_features_df.columns]
-cols_no_odds = [c for c in cols_with_odds if c != 'odds_diff']
+importance_rows = []
 
 for featureset_name, columns, in feature_sets.items():
     # Collect every non-categorical feature (continuous) into an array
-    num_features = [c for c in all_features_df.columns if c not in CAT_FEATURES]
+    num_features = [c for c in columns if c not in CAT_FEATURES]
     X_train = all_features_df.loc[train_mask, columns]
     X_test = all_features_df.loc[test_mask, columns]
 
@@ -164,7 +163,7 @@ for featureset_name, columns, in feature_sets.items():
     # --- Param grids ---
     param_grid_lr = {
         "clf__C": [0.01, 0.1, 1.0, 10.0],
-        "clf__penalty": ["l1", "l2"],
+        "clf__l1_ratio": [0, 1],
         "clf__solver": ["liblinear"]
     }
 
@@ -190,12 +189,6 @@ for featureset_name, columns, in feature_sets.items():
         "clf__l2_leaf_reg": [3, 10]
     }
 
-    param_grid_knn = {
-        "clf__n_neighbors": [5, 11, 21, 31],
-        "clf__weights": ["uniform", "distance"],
-        "clf__p": [1, 2]
-    }
-
     all_models = {
         # --- Pipelines ---
         "Logistic Regression" : (
@@ -206,7 +199,7 @@ for featureset_name, columns, in feature_sets.items():
             param_grid_lr
         ),
 
-        "Random Forrest" : (
+        "Random Forest" : (
             Pipeline([
                 ("preprocess", preprocessor),
                 ("clf", RandomForestClassifier(random_state=SEED, n_jobs=-1))
@@ -230,14 +223,6 @@ for featureset_name, columns, in feature_sets.items():
                                            allow_writing_files=False))
             ]),
             param_grid_cb,
-        ),
-
-        "KNeghborsClassifier" : (
-            Pipeline([
-                ("preprocess", preprocessor_scaled),
-                ("clf", KNeighborsClassifier())
-            ]),
-            param_grid_knn
         )
     }
 
@@ -263,7 +248,28 @@ for featureset_name, columns, in feature_sets.items():
 
         # Test set is used once, only for the CV-selected configuration.
         best = grid_search.best_estimator_
+
+        importance = permutation_importance(
+            best, X_test, y_test,
+            scoring=["roc_auc", "accuracy", "neg_log_loss"],
+            n_repeats=10, random_state=SEED, n_jobs=-1,
+        )
+
+        for metric, res in importance.items():
+            importance_rows.extend(
+                {
+                    "model": model,
+                    "features": featureset_name,
+                    "metric": metric,
+                    "feature": feature,
+                    "importance": mean,
+                    "importance_std": std,
+                }
+                for feature, mean, std in zip(columns, res.importances_mean, res.importances_std)
+            )
+
         proba = best.predict_proba(X_test)[:, 1]
+        test_probas[f"{model} ({featureset_name})"] = proba
         results.append({
             "model": model, "features": featureset_name,
             "cv_auc": grid_search.best_score_,
@@ -277,6 +283,102 @@ for featureset_name, columns, in feature_sets.items():
 
 summary = pd.DataFrame(results)
 pd.set_option("display.width", 200)
+
 print("\n Summary (models selected by CV ROC-AUC, then scored once on test) ")
 print(summary.drop(columns=["best_params"]).round(4).to_string(index=False))
-summary.to_csv("results_summary.csv", index=False)
+
+result_path = Path.cwd().parent / "data" / "results_summary.csv"
+
+summary.to_csv(result_path, index=False)
+
+imp = pd.DataFrame(importance_rows)
+imp.to_csv(Path.cwd().parent / "data" / "permutation_importance.csv", index=False)
+
+def plot_importance(imp, metric="roc_auc", features="no odds", top_n=15):
+    """Horizontal bars per model, top_n features, error bars = std over repeats."""
+    d = imp[(imp["metric"] == metric) & (imp["features"] == features)]
+    models = d["model"].unique()
+    fig, axes = plt.subplots(1, len(models), figsize=(4.5 * len(models), 0.35 * top_n + 1.5), sharex=True)
+    for ax, m in zip(np.atleast_1d(axes), models):
+        dm = d[d["model"] == m].nlargest(top_n, "importance").iloc[::-1]  # biggest on top
+        colors = np.where(dm["importance"] > 0, "tab:blue", "tab:red")
+        ax.barh(dm["feature"], dm["importance"], xerr=dm["importance_std"], color=colors, capsize=2)
+        ax.axvline(0, color="gray", lw=0.8)
+        ax.set_title(m)
+        ax.grid(axis="x", alpha=0.3)
+    fig.supxlabel(f"Drop in test {metric} when feature is shuffled")
+    fig.suptitle(f"Permutation importance ({features})")
+    plt.tight_layout()
+    plt.show()
+
+plot_importance(imp, metric="roc_auc", features="no odds")
+plot_importance(imp, metric="roc_auc", features="with odds")
+
+# Heatmap: every feature vs every model, for one metric and feature set
+def importance_heatmap(imp, metric="roc_auc", features="no odds"):
+    d = imp[(imp["metric"] == metric) & (imp["features"] == features)]
+    pivot = d.pivot_table(index="feature", columns="model", values="importance")
+    pivot = pivot.loc[pivot.mean(axis=1).sort_values(ascending=False).index]
+    fig, ax = plt.subplots(figsize=(7, 0.3 * len(pivot) + 1.5))
+    sns.heatmap(pivot, annot=True, fmt=".3f", cmap="RdBu_r", center=0, ax=ax, cbar_kws={"label": metric})
+    ax.set_title(f"Permutation importance, {metric} ({features})")
+    plt.tight_layout()
+    plt.show()
+
+importance_heatmap(imp, "roc_auc", "no odds")
+
+# Test-set AUC and accuracy per model, with and without odds.
+# Dot plot rather than bars so the axis doesn't have to start at 0 to be honest.
+models_df = summary[summary["features"].isin(["with odds", "no odds"])]
+fav = summary.loc[summary["model"] == "Betting favorite"].iloc[0]
+maj = summary.loc[summary["model"] == "Majority class (always red)"].iloc[0]
+model_names = models_df["model"].unique()
+ypos = np.arange(len(model_names))
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 4), sharey=True)
+for ax, metric, label in zip(axes, ["test_auc", "test_acc"], ["Test ROC-AUC", "Test accuracy"]):
+    for feats, color, offset in [("with odds", "tab:blue", -0.12), ("no odds", "tab:orange", 0.12)]:
+        vals = models_df[models_df["features"] == feats].set_index("model").loc[model_names, metric]
+        ax.scatter(vals, ypos + offset, color=color, s=60, label=feats, zorder=3)
+    ax.axvline(fav[metric], color="gray", ls="--", label="Betting favorite")
+    ax.axvline(maj[metric], color="gray", ls=":", label="Majority class")
+    ax.set_xlabel(label)
+    ax.grid(axis="x", alpha=0.3)
+axes[0].set_yticks(ypos, model_names)
+axes[0].invert_yaxis()
+handles, labels = axes[1].get_legend_handles_labels()
+fig.legend(handles, labels, loc="lower center", ncol=4, fontsize=9, frameon=False)
+fig.suptitle("Test performance by model")
+plt.tight_layout(rect=(0, 0.07, 1, 1))
+plt.show()
+
+
+# ROC curves on the test set: the with-odds models against the bookmaker's implied probabilities
+fig, ax = plt.subplots(figsize=(6, 6))
+for name, proba in test_probas.items():
+    if name == "Betting favorite" or "(with odds)" in name:
+        fpr, tpr, _ = roc_curve(y_test, proba)
+        style = dict(color="black", ls="--", lw=2) if name == "Betting favorite" else dict(lw=1.5)
+        ax.plot(fpr, tpr, label=f"{name}  (AUC {roc_auc_score(y_test, proba):.3f})", **style)
+ax.plot([0, 1], [0, 1], color="gray", ls=":", lw=1)
+ax.set_xlabel("False positive rate")
+ax.set_ylabel("True positive rate")
+ax.set_title("ROC curves (test set)")
+ax.legend(loc="lower right", fontsize=8)
+plt.tight_layout()
+plt.show()
+
+# Calibration: when a model says "red wins 70%", does red win ~70% of the time?
+# Matters more than AUC if these probabilities are ever compared to betting lines.
+fig, ax = plt.subplots(figsize=(6, 6))
+for name in ["Betting favorite", "Logistic Regression (with odds)", "Logistic Regression (no odds)"]:
+    frac_pos, mean_pred = calibration_curve(y_test, test_probas[name], n_bins=10, strategy="quantile")
+    style = dict(color="black", ls="--") if name == "Betting favorite" else {}
+    ax.plot(mean_pred, frac_pos, marker="o", label=name, **style)
+ax.plot([0, 1], [0, 1], color="gray", ls=":", lw=1, label="Perfect calibration")
+ax.set_xlabel("Predicted P(red wins)")
+ax.set_ylabel("Observed fraction red wins")
+ax.set_title("Calibration (test set, 10 quantile bins)")
+ax.legend(loc="upper left", fontsize=8)
+plt.tight_layout()
+plt.show()

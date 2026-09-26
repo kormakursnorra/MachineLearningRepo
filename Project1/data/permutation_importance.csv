@@ -1,0 +1,639 @@
+model,features,metric,feature,importance,importance_std
+Logistic Regression,with odds,roc_auc,gender,0.0,
+Logistic Regression,with odds,roc_auc,weight_class,0.0,
+Logistic Regression,with odds,roc_auc,red_stance,0.0,
+Logistic Regression,with odds,roc_auc,blue_stance,0.0,
+Logistic Regression,with odds,roc_auc,b_match_wc_rank,0.0,
+Logistic Regression,with odds,roc_auc,r_match_wc_rank,0.0,
+Logistic Regression,with odds,roc_auc,odds_diff,0.24204469652317245,
+Logistic Regression,with odds,roc_auc,age_diff,0.001331560390071107,
+Logistic Regression,with odds,roc_auc,reach_diff,0.0,
+Logistic Regression,with odds,roc_auc,height_diff,0.0,
+Logistic Regression,with odds,roc_auc,wins_diff,0.0,
+Logistic Regression,with odds,roc_auc,losses_diff,0.0,
+Logistic Regression,with odds,roc_auc,rounds_diff,0.0,
+Logistic Regression,with odds,roc_auc,title_bout_diff,0.0,
+Logistic Regression,with odds,roc_auc,ko_diff,0.0,
+Logistic Regression,with odds,roc_auc,submission_diff,0.0,
+Logistic Regression,with odds,roc_auc,win_streak_diff,0.0,
+Logistic Regression,with odds,roc_auc,lose_streak_diff,0.0,
+Logistic Regression,with odds,roc_auc,longest_win_streak_diff,0.0,
+Logistic Regression,with odds,roc_auc,sig_str_diff,0.0,
+Logistic Regression,with odds,roc_auc,sub_att_diff,0.0,
+Logistic Regression,with odds,roc_auc,td_diff,0.0016394136934279268,
+Logistic Regression,with odds,roc_auc,rank_diff,0.0,
+Logistic Regression,with odds,roc_auc,avg_age,0.0,
+Logistic Regression,with odds,roc_auc,avg_age_c,0.0,
+Logistic Regression,with odds,roc_auc,age_diff_x_avg,0.0,
+Logistic Regression,with odds,roc_auc,gender,0.0,0.0
+Logistic Regression,with odds,roc_auc,weight_class,0.0,0.0
+Logistic Regression,with odds,roc_auc,red_stance,0.0,0.0
+Logistic Regression,with odds,roc_auc,blue_stance,0.0,0.0
+Logistic Regression,with odds,roc_auc,b_match_wc_rank,0.0,0.0
+Logistic Regression,with odds,roc_auc,r_match_wc_rank,0.0,0.0
+Logistic Regression,with odds,roc_auc,odds_diff,0.24204469652317245,0.02006675507872771
+Logistic Regression,with odds,roc_auc,age_diff,0.001331560390071107,0.001942762793712467
+Logistic Regression,with odds,roc_auc,reach_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,height_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,wins_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,losses_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,rounds_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,title_bout_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,ko_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,submission_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,win_streak_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,lose_streak_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,longest_win_streak_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,sig_str_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,sub_att_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,td_diff,0.0016394136934279268,0.0011076932128537048
+Logistic Regression,with odds,roc_auc,rank_diff,0.0,0.0
+Logistic Regression,with odds,roc_auc,avg_age,0.0,0.0
+Logistic Regression,with odds,roc_auc,avg_age_c,0.0,0.0
+Logistic Regression,with odds,roc_auc,age_diff_x_avg,0.0,0.0
+Logistic Regression,with odds,accuracy,gender,0.0,0.0
+Logistic Regression,with odds,accuracy,weight_class,0.0,0.0
+Logistic Regression,with odds,accuracy,red_stance,0.0,0.0
+Logistic Regression,with odds,accuracy,blue_stance,0.0,0.0
+Logistic Regression,with odds,accuracy,b_match_wc_rank,0.0,0.0
+Logistic Regression,with odds,accuracy,r_match_wc_rank,0.0,0.0
+Logistic Regression,with odds,accuracy,odds_diff,0.18495049504950495,0.010976959211082458
+Logistic Regression,with odds,accuracy,age_diff,-0.0003300330033003118,0.002272199931096846
+Logistic Regression,with odds,accuracy,reach_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,height_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,wins_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,losses_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,rounds_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,title_bout_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,ko_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,submission_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,win_streak_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,lose_streak_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,longest_win_streak_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,sig_str_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,sub_att_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,td_diff,0.0011221122112211157,0.0009358050745054662
+Logistic Regression,with odds,accuracy,rank_diff,0.0,0.0
+Logistic Regression,with odds,accuracy,avg_age,0.0,0.0
+Logistic Regression,with odds,accuracy,avg_age_c,0.0,0.0
+Logistic Regression,with odds,accuracy,age_diff_x_avg,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,gender,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,weight_class,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,red_stance,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,blue_stance,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,b_match_wc_rank,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,r_match_wc_rank,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,odds_diff,0.22627423212993042,0.020210500333054274
+Logistic Regression,with odds,neg_log_loss,age_diff,0.002173009439505924,0.0007438077721797622
+Logistic Regression,with odds,neg_log_loss,reach_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,height_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,wins_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,losses_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,rounds_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,title_bout_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,ko_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,submission_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,win_streak_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,lose_streak_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,longest_win_streak_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,sig_str_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,sub_att_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,td_diff,0.00039738480396687146,0.00046170343817301187
+Logistic Regression,with odds,neg_log_loss,rank_diff,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,avg_age,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,avg_age_c,0.0,0.0
+Logistic Regression,with odds,neg_log_loss,age_diff_x_avg,0.0,0.0
+Random Forest,with odds,roc_auc,gender,-5.435300512111052e-05,6.249059875175222e-05
+Random Forest,with odds,roc_auc,weight_class,0.00018688257280312647,0.00018896792428444698
+Random Forest,with odds,roc_auc,red_stance,0.00024847088055407474,0.00023855405470327677
+Random Forest,with odds,roc_auc,blue_stance,-2.170590788921345e-05,7.459122241686627e-05
+Random Forest,with odds,roc_auc,b_match_wc_rank,-2.3294145051866444e-05,0.0001657676145283833
+Random Forest,with odds,roc_auc,r_match_wc_rank,8.770598553655695e-05,0.0001522484852239973
+Random Forest,with odds,roc_auc,odds_diff,0.22862832779803283,0.019792565596689682
+Random Forest,with odds,roc_auc,age_diff,0.0014978841151578992,0.0016178229677593203
+Random Forest,with odds,roc_auc,reach_diff,-5.2058884775052494e-05,0.0002600238941404241
+Random Forest,with odds,roc_auc,height_diff,-3.40588635985184e-05,0.00010852609605926618
+Random Forest,with odds,roc_auc,wins_diff,-0.00011735307923879112,0.00027493136230123617
+Random Forest,with odds,roc_auc,losses_diff,-0.00018247080290670903,0.0006812564506405074
+Random Forest,with odds,roc_auc,rounds_diff,-0.00023929439916978713,0.00015233672160308432
+Random Forest,with odds,roc_auc,title_bout_diff,5.7353008650695704e-05,4.5062293708086494e-05
+Random Forest,with odds,roc_auc,ko_diff,-0.00022323555674760298,0.0002211584650016613
+Random Forest,with odds,roc_auc,submission_diff,1.51764884430583e-05,0.00010424391461854793
+Random Forest,with odds,roc_auc,win_streak_diff,0.00020858848069241765,0.0002745170987831165
+Random Forest,with odds,roc_auc,lose_streak_diff,1.9058845951702707e-05,0.00026537922131616716
+Random Forest,with odds,roc_auc,longest_win_streak_diff,5.205888477523013e-05,0.0001436763837336576
+Random Forest,with odds,roc_auc,sig_str_diff,0.00037270632083108435,0.0005867354351997942
+Random Forest,with odds,roc_auc,sub_att_diff,0.0005560594777170968,0.0004465460549806104
+Random Forest,with odds,roc_auc,td_diff,-0.000977471738201907,0.0015925193263200412
+Random Forest,with odds,roc_auc,rank_diff,-3.0176506089896194e-05,7.234635453317815e-05
+Random Forest,with odds,roc_auc,avg_age,-0.00040570635965442303,0.00031022386404237117
+Random Forest,with odds,roc_auc,avg_age_c,-0.00025200029647086674,0.0003636889709957142
+Random Forest,with odds,roc_auc,age_diff_x_avg,0.00027105914242263606,0.00037515317150035345
+Random Forest,with odds,accuracy,gender,0.0,0.0
+Random Forest,with odds,accuracy,weight_class,-0.00013201320132016914,0.0006467299650912801
+Random Forest,with odds,accuracy,red_stance,-0.0011881188118812226,0.0006467299650912529
+Random Forest,with odds,accuracy,blue_stance,-0.0013201320132013583,0.0007230660825150715
+Random Forest,with odds,accuracy,b_match_wc_rank,0.0003300330033003007,0.0005321622276104566
+Random Forest,with odds,accuracy,r_match_wc_rank,0.0007260726072606972,0.0007496908707326866
+Random Forest,with odds,accuracy,odds_diff,0.1712211221122112,0.012573174593674649
+Random Forest,with odds,accuracy,age_diff,0.0025082508250824586,0.0026037073166093687
+Random Forest,with odds,accuracy,reach_diff,0.00019801980198016488,0.000935805074505475
+Random Forest,with odds,accuracy,height_diff,0.0006600660066006236,0.00051128493019237
+Random Forest,with odds,accuracy,wins_diff,-0.0008580858085808884,0.0008375298706567307
+Random Forest,with odds,accuracy,losses_diff,-0.0016501650165016923,0.0014233570067886338
+Random Forest,with odds,accuracy,rounds_diff,-0.0007920792079208372,0.000710912845826333
+Random Forest,with odds,accuracy,title_bout_diff,6.600660066005126e-05,0.00035545642291317164
+Random Forest,with odds,accuracy,ko_diff,-0.00033003300330036733,0.0006763663871920641
+Random Forest,with odds,accuracy,submission_diff,-0.0003960396039604297,0.0004378382561525541
+Random Forest,with odds,accuracy,win_streak_diff,-0.001914191419141953,0.0009074407316744165
+Random Forest,with odds,accuracy,lose_streak_diff,0.000726072607260686,0.0008580858085808535
+Random Forest,with odds,accuracy,longest_win_streak_diff,-0.00026402640264028276,0.0004378382561525508
+Random Forest,with odds,accuracy,sig_str_diff,-0.0028382838283828814,0.001591019246626271
+Random Forest,with odds,accuracy,sub_att_diff,-0.001452145214521483,0.0011356204972993585
+Random Forest,with odds,accuracy,td_diff,-0.0019801980198020154,0.002607051836056974
+Random Forest,with odds,accuracy,rank_diff,6.600660066004016e-05,0.0004620462046204715
+Random Forest,with odds,accuracy,avg_age,-0.0003960396039604408,0.0006731378895832166
+Random Forest,with odds,accuracy,avg_age_c,0.0006600660066006236,0.0007230660825150715
+Random Forest,with odds,accuracy,age_diff_x_avg,-0.0011881188118812336,0.001528163287497057
+Random Forest,with odds,neg_log_loss,gender,-3.41038169973662e-05,3.680983477344477e-05
+Random Forest,with odds,neg_log_loss,weight_class,5.2025851898029886e-05,0.00012227291375437128
+Random Forest,with odds,neg_log_loss,red_stance,0.0002528748022623484,0.0001283918629442273
+Random Forest,with odds,neg_log_loss,blue_stance,1.010165387849149e-06,4.0265993135006465e-05
+Random Forest,with odds,neg_log_loss,b_match_wc_rank,-4.746316933301742e-06,0.00011675271464534261
+Random Forest,with odds,neg_log_loss,r_match_wc_rank,3.0330020034519124e-05,0.00013339488280698138
+Random Forest,with odds,neg_log_loss,odds_diff,0.15096696567227144,0.012937946730075981
+Random Forest,with odds,neg_log_loss,age_diff,0.003119151781461249,0.0006563069844446892
+Random Forest,with odds,neg_log_loss,reach_diff,-2.6977124459348632e-05,0.0001351753857473968
+Random Forest,with odds,neg_log_loss,height_diff,2.4726905490235486e-05,5.811728038475983e-05
+Random Forest,with odds,neg_log_loss,wins_diff,-2.4077609491479635e-05,0.0001906805692704313
+Random Forest,with odds,neg_log_loss,losses_diff,0.0003785360262077986,0.00043435026783482925
+Random Forest,with odds,neg_log_loss,rounds_diff,-1.5458230283127426e-05,0.00010872822194006911
+Random Forest,with odds,neg_log_loss,title_bout_diff,4.071989559437661e-05,3.790093758112831e-05
+Random Forest,with odds,neg_log_loss,ko_diff,-0.00022119922290215755,0.00017633400470416877
+Random Forest,with odds,neg_log_loss,submission_diff,2.6625668820301486e-05,6.133572831058119e-05
+Random Forest,with odds,neg_log_loss,win_streak_diff,0.0004419112477877296,0.00016317774336829015
+Random Forest,with odds,neg_log_loss,lose_streak_diff,0.0002635997823776104,0.00017883964362165928
+Random Forest,with odds,neg_log_loss,longest_win_streak_diff,9.730775130412095e-06,9.190625923653706e-05
+Random Forest,with odds,neg_log_loss,sig_str_diff,0.00035278887392086177,0.00044590336737599593
+Random Forest,with odds,neg_log_loss,sub_att_diff,0.0002774822043536629,0.00031227492031887674
+Random Forest,with odds,neg_log_loss,td_diff,-0.0010621184923240712,0.0012348932248079031
+Random Forest,with odds,neg_log_loss,rank_diff,2.7887151674232947e-06,4.7590747216991715e-05
+Random Forest,with odds,neg_log_loss,avg_age,-0.0001560178947942692,0.0001890337536819626
+Random Forest,with odds,neg_log_loss,avg_age_c,9.653810446130784e-06,0.00024441860382456125
+Random Forest,with odds,neg_log_loss,age_diff_x_avg,0.00043014595447276037,0.00024081408312206587
+XGBClassifier,with odds,roc_auc,gender,0.0,0.0
+XGBClassifier,with odds,roc_auc,weight_class,0.00014620605436008738,9.943001873308136e-05
+XGBClassifier,with odds,roc_auc,red_stance,6.370595730113005e-05,3.5076872410012654e-05
+XGBClassifier,with odds,roc_auc,blue_stance,0.0,0.0
+XGBClassifier,with odds,roc_auc,b_match_wc_rank,0.0,0.0
+XGBClassifier,with odds,roc_auc,r_match_wc_rank,4.200004941180557e-05,6.637179007269075e-05
+XGBClassifier,with odds,roc_auc,odds_diff,0.2413959016422372,0.020347797164844857
+XGBClassifier,with odds,roc_auc,age_diff,0.0008091185989630767,0.0012726126319634675
+XGBClassifier,with odds,roc_auc,reach_diff,9.105893065758375e-05,8.55726886915579e-05
+XGBClassifier,with odds,roc_auc,height_diff,1.9147081349535355e-05,3.896579470923639e-05
+XGBClassifier,with odds,roc_auc,wins_diff,0.0,0.0
+XGBClassifier,with odds,roc_auc,losses_diff,-0.00015317665079604969,0.0001036066940722348
+XGBClassifier,with odds,roc_auc,rounds_diff,-0.00013067662432544313,0.00011204606669604505
+XGBClassifier,with odds,roc_auc,title_bout_diff,-1.2529426505270003e-05,2.6569845283240778e-05
+XGBClassifier,with odds,roc_auc,ko_diff,5.0735353806263815e-05,5.27220346880315e-05
+XGBClassifier,with odds,roc_auc,submission_diff,0.0,0.0
+XGBClassifier,with odds,roc_auc,win_streak_diff,-2.1441201695482358e-05,4.597910942713543e-05
+XGBClassifier,with odds,roc_auc,lose_streak_diff,-0.00012132367214545692,9.538344463720324e-05
+XGBClassifier,with odds,roc_auc,longest_win_streak_diff,0.00011364719252612287,0.00010903967540763296
+XGBClassifier,with odds,roc_auc,sig_str_diff,9.679423152264555e-05,0.0005959925970568043
+XGBClassifier,with odds,roc_auc,sub_att_diff,0.000283676804325661,0.00020987388041768164
+XGBClassifier,with odds,roc_auc,td_diff,-0.0007133831922154887,0.001171303172418261
+XGBClassifier,with odds,roc_auc,rank_diff,6.652949003466135e-05,4.659664497948815e-05
+XGBClassifier,with odds,roc_auc,avg_age,-1.9764729135018922e-05,0.00012959446221997098
+XGBClassifier,with odds,roc_auc,avg_age_c,0.0,0.0
+XGBClassifier,with odds,roc_auc,age_diff_x_avg,-2.8147091937802403e-05,6.799102814535949e-05
+XGBClassifier,with odds,accuracy,gender,0.0,0.0
+XGBClassifier,with odds,accuracy,weight_class,-0.001122112211221138,0.0006633581268066681
+XGBClassifier,with odds,accuracy,red_stance,-0.0002640264026402495,0.0004378382561525039
+XGBClassifier,with odds,accuracy,blue_stance,0.0,0.0
+XGBClassifier,with odds,accuracy,b_match_wc_rank,0.0,0.0
+XGBClassifier,with odds,accuracy,r_match_wc_rank,0.0,0.0
+XGBClassifier,with odds,accuracy,odds_diff,0.17544554455445543,0.01409453458594783
+XGBClassifier,with odds,accuracy,age_diff,0.0029042904290428884,0.001648844356012771
+XGBClassifier,with odds,accuracy,reach_diff,-0.000990099009901002,0.0007948247246727611
+XGBClassifier,with odds,accuracy,height_diff,0.0,0.0
+XGBClassifier,with odds,accuracy,wins_diff,0.0,0.0
+XGBClassifier,with odds,accuracy,losses_diff,-0.0007920792079207928,0.0007109128458263411
+XGBClassifier,with odds,accuracy,rounds_diff,0.0,0.00029519049207916385
+XGBClassifier,with odds,accuracy,title_bout_diff,0.0,0.0
+XGBClassifier,with odds,accuracy,ko_diff,0.0003300330033003118,0.0003300330033003118
+XGBClassifier,with odds,accuracy,submission_diff,0.0,0.0
+XGBClassifier,with odds,accuracy,win_streak_diff,-0.0013861386138613984,0.0004620462046204714
+XGBClassifier,with odds,accuracy,lose_streak_diff,-0.0010561056105610534,0.0006049604877829643
+XGBClassifier,with odds,accuracy,longest_win_streak_diff,-0.00033003300330032294,0.0005321622276104566
+XGBClassifier,with odds,accuracy,sig_str_diff,0.0021122112211221177,0.001279915473905304
+XGBClassifier,with odds,accuracy,sub_att_diff,0.0007260726072607304,0.0008057132419626179
+XGBClassifier,with odds,accuracy,td_diff,0.00046204620462046985,0.0016181717058919214
+XGBClassifier,with odds,accuracy,rank_diff,0.0,0.0
+XGBClassifier,with odds,accuracy,avg_age,0.0,0.0
+XGBClassifier,with odds,accuracy,avg_age_c,0.0,0.0
+XGBClassifier,with odds,accuracy,age_diff_x_avg,0.00013201320132012474,0.0002640264026402495
+XGBClassifier,with odds,neg_log_loss,gender,0.0,0.0
+XGBClassifier,with odds,neg_log_loss,weight_class,5.443096160888672e-05,5.0349090234377196e-05
+XGBClassifier,with odds,neg_log_loss,red_stance,4.6193599700927734e-06,1.2445907988555639e-05
+XGBClassifier,with odds,neg_log_loss,blue_stance,0.0,0.0
+XGBClassifier,with odds,neg_log_loss,b_match_wc_rank,0.0,0.0
+XGBClassifier,with odds,neg_log_loss,r_match_wc_rank,3.552436828613281e-05,2.14686630498755e-05
+XGBClassifier,with odds,neg_log_loss,odds_diff,0.1710508644580841,0.014047286021034147
+XGBClassifier,with odds,neg_log_loss,age_diff,0.0013476908206939697,0.00048672268425975685
+XGBClassifier,with odds,neg_log_loss,reach_diff,-9.059906005859375e-07,2.336745042721552e-05
+XGBClassifier,with odds,neg_log_loss,height_diff,5.072355270385742e-06,1.2841846652944264e-05
+XGBClassifier,with odds,neg_log_loss,wins_diff,0.0,0.0
+XGBClassifier,with odds,neg_log_loss,losses_diff,-1.316070556640625e-05,3.579893669315523e-05
+XGBClassifier,with odds,neg_log_loss,rounds_diff,-0.0001035928726196289,4.400019560423586e-05
+XGBClassifier,with odds,neg_log_loss,title_bout_diff,-9.196996688842774e-06,6.971656964027324e-06
+XGBClassifier,with odds,neg_log_loss,ko_diff,1.8030405044555664e-05,3.926360458953122e-05
+XGBClassifier,with odds,neg_log_loss,submission_diff,0.0,0.0
+XGBClassifier,with odds,neg_log_loss,win_streak_diff,-3.4332275390625e-06,2.3008955521957497e-05
+XGBClassifier,with odds,neg_log_loss,lose_streak_diff,6.365776062011719e-06,2.4933112366742067e-05
+XGBClassifier,with odds,neg_log_loss,longest_win_streak_diff,3.31580638885498e-05,4.1914154458304984e-05
+XGBClassifier,with odds,neg_log_loss,sig_str_diff,4.589557647705078e-06,0.00020199809216878137
+XGBClassifier,with odds,neg_log_loss,sub_att_diff,0.00011805295944213867,8.855054757813915e-05
+XGBClassifier,with odds,neg_log_loss,td_diff,-0.00037578940391540526,0.0006386084522889228
+XGBClassifier,with odds,neg_log_loss,rank_diff,1.571178436279297e-05,1.7826377156792558e-05
+XGBClassifier,with odds,neg_log_loss,avg_age,-3.0475854873657227e-05,8.137384960129785e-05
+XGBClassifier,with odds,neg_log_loss,avg_age_c,0.0,0.0
+XGBClassifier,with odds,neg_log_loss,age_diff_x_avg,-2.6220083236694335e-05,3.255467377433738e-05
+CatBoost,with odds,roc_auc,gender,-0.000194647287820382,0.00022359769078861226
+CatBoost,with odds,roc_auc,weight_class,0.0001466472313496281,0.0001297833229367647
+CatBoost,with odds,roc_auc,red_stance,-0.00029929446975820453,0.00038293040425894074
+CatBoost,with odds,roc_auc,blue_stance,-6.0882424567587634e-05,7.752372305173883e-05
+CatBoost,with odds,roc_auc,b_match_wc_rank,-0.0001537060631836451,0.00018266977873652234
+CatBoost,with odds,roc_auc,r_match_wc_rank,-0.0001630590153635425,0.00021221183696350682
+CatBoost,with odds,roc_auc,odds_diff,0.23487557044184754,0.019613682807283137
+CatBoost,with odds,roc_auc,age_diff,0.0011636484278216507,0.0013411000739501004
+CatBoost,with odds,roc_auc,reach_diff,-0.00032152979003508,0.00042036277033351754
+CatBoost,with odds,roc_auc,height_diff,-0.00010641188989634065,0.00020842695184993015
+CatBoost,with odds,roc_auc,wins_diff,-0.0005550006529419394,0.000235662526033617
+CatBoost,with odds,roc_auc,losses_diff,-0.00013764722076144986,0.0003736783165548179
+CatBoost,with odds,roc_auc,rounds_diff,-5.6470654671370026e-05,0.00024306762252486743
+CatBoost,with odds,roc_auc,title_bout_diff,-2.4705911418754224e-05,9.150653150320172e-05
+CatBoost,with odds,roc_auc,ko_diff,-0.00020982377626332926,0.00011512187031338539
+CatBoost,with odds,roc_auc,submission_diff,0.00023223556733592554,8.099298232457815e-05
+CatBoost,with odds,roc_auc,win_streak_diff,0.0001127648385468416,0.0005299729443782963
+CatBoost,with odds,roc_auc,lose_streak_diff,-0.00012600014823546112,0.00028055992905314973
+CatBoost,with odds,roc_auc,longest_win_streak_diff,-5.188241397930948e-05,0.00020582305706547428
+CatBoost,with odds,roc_auc,sig_str_diff,-0.0001537060631836229,0.00037800559379586263
+CatBoost,with odds,roc_auc,sub_att_diff,0.0003578827739797341,0.0002876969780048978
+CatBoost,with odds,roc_auc,td_diff,0.0006374125146029197,0.0014080022561113654
+CatBoost,with odds,roc_auc,rank_diff,0.00026029442387575096,0.0001471987538248722
+CatBoost,with odds,roc_auc,avg_age,0.0002532355920418672,0.00014732140978167347
+CatBoost,with odds,roc_auc,avg_age_c,1.641178401382559e-05,0.000299341549212857
+CatBoost,with odds,roc_auc,age_diff_x_avg,-0.00010411776955029372,0.0001897286760399078
+CatBoost,with odds,accuracy,gender,-0.0003300330033003118,0.0006763663871920587
+CatBoost,with odds,accuracy,weight_class,0.0011881188118811781,0.0016114264839252525
+CatBoost,with odds,accuracy,red_stance,-0.0013861386138613874,0.00074969087073271
+CatBoost,with odds,accuracy,blue_stance,0.0003960396039603964,0.0006049604877829498
+CatBoost,with odds,accuracy,b_match_wc_rank,-0.0007260726072607304,0.0008580858085808586
+CatBoost,with odds,accuracy,r_match_wc_rank,-0.0001980198019801982,0.0007837849562401086
+CatBoost,with odds,accuracy,odds_diff,0.16673267326732674,0.011808357636337112
+CatBoost,with odds,accuracy,age_diff,-0.0022442244224422534,0.002708684426228823
+CatBoost,with odds,accuracy,reach_diff,-0.0033663366336633693,0.0016019354586813942
+CatBoost,with odds,accuracy,height_diff,-0.0003960396039603964,0.0009427628288505266
+CatBoost,with odds,accuracy,wins_diff,0.0006600660066006569,0.000781000631432287
+CatBoost,with odds,accuracy,losses_diff,0.0009240924092409175,0.001359159094519728
+CatBoost,with odds,accuracy,rounds_diff,-0.0013861386138613984,0.0005482920041530074
+CatBoost,with odds,accuracy,title_bout_diff,-6.600660066007347e-05,0.0006227050252182457
+CatBoost,with odds,accuracy,ko_diff,-0.00046204620462045873,0.0008375298706567456
+CatBoost,with odds,accuracy,submission_diff,0.0001980198019801982,0.0007837849562401086
+CatBoost,with odds,accuracy,win_streak_diff,0.0022442244224422426,0.0011881188118811942
+CatBoost,with odds,accuracy,lose_streak_diff,0.000990099009901002,0.0006763663871920588
+CatBoost,with odds,accuracy,longest_win_streak_diff,0.00039603960396037417,0.0012242400654119902
+CatBoost,with odds,accuracy,sig_str_diff,-0.0027722772277227635,0.0018622753768535874
+CatBoost,with odds,accuracy,sub_att_diff,0.0006600660066006459,0.0011045016851934978
+CatBoost,with odds,accuracy,td_diff,-0.0031683168316831824,0.002963689019226875
+CatBoost,with odds,accuracy,rank_diff,0.0009900990099009689,0.0007379762301979543
+CatBoost,with odds,accuracy,avg_age,0.00046204620462045873,0.0006633581268066626
+CatBoost,with odds,accuracy,avg_age_c,-0.000990099009901002,0.0011899509159946995
+CatBoost,with odds,accuracy,age_diff_x_avg,0.0013861386138613984,0.001082588743686915
+CatBoost,with odds,neg_log_loss,gender,-8.476723009412935e-05,0.00017974054921141017
+CatBoost,with odds,neg_log_loss,weight_class,0.00016894721569178374,0.00012224083592815235
+CatBoost,with odds,neg_log_loss,red_stance,-0.00022955974214143858,0.00022589167440084277
+CatBoost,with odds,neg_log_loss,blue_stance,-1.6177200431788385e-06,7.154754291821314e-05
+CatBoost,with odds,neg_log_loss,b_match_wc_rank,-2.7171049902940946e-05,0.00013454108735851434
+CatBoost,with odds,neg_log_loss,r_match_wc_rank,-3.06971266472833e-05,0.00015274940183336697
+CatBoost,with odds,neg_log_loss,odds_diff,0.16779834090984064,0.013957067949609948
+CatBoost,with odds,neg_log_loss,age_diff,0.0019191606143797002,0.0007957225183191659
+CatBoost,with odds,neg_log_loss,reach_diff,-0.0001936781395219578,0.00026335720341914745
+CatBoost,with odds,neg_log_loss,height_diff,5.1772758755130874e-05,0.00012820365530080095
+CatBoost,with odds,neg_log_loss,wins_diff,-0.00018626342714128663,0.00014278201874801978
+CatBoost,with odds,neg_log_loss,losses_diff,0.00014939219008569538,0.0002277854459173154
+CatBoost,with odds,neg_log_loss,rounds_diff,-1.0657151648152396e-05,0.00019907751581875252
+CatBoost,with odds,neg_log_loss,title_bout_diff,6.378961352627721e-05,6.701326391662441e-05
+CatBoost,with odds,neg_log_loss,ko_diff,-7.178597217512017e-05,8.055492147723478e-05
+CatBoost,with odds,neg_log_loss,submission_diff,0.00022406946859307997,6.0562932334135575e-05
+CatBoost,with odds,neg_log_loss,win_streak_diff,0.000271154667522433,0.0004047876289554779
+CatBoost,with odds,neg_log_loss,lose_streak_diff,0.00014911304659995795,0.0002549650458316602
+CatBoost,with odds,neg_log_loss,longest_win_streak_diff,-8.153781828490469e-06,0.00014134342739461917
+CatBoost,with odds,neg_log_loss,sig_str_diff,-3.014457780192714e-05,0.00026754004261302436
+CatBoost,with odds,neg_log_loss,sub_att_diff,0.00023235747639280824,0.0002627646178500262
+CatBoost,with odds,neg_log_loss,td_diff,0.0001472274370130422,0.0010054672059555967
+CatBoost,with odds,neg_log_loss,rank_diff,0.00013614082294484132,0.00010352178263762292
+CatBoost,with odds,neg_log_loss,avg_age,0.0001991867668945324,9.250181927373336e-05
+CatBoost,with odds,neg_log_loss,avg_age_c,5.782575053981942e-05,0.00017322775604139878
+CatBoost,with odds,neg_log_loss,age_diff_x_avg,6.578201572586817e-05,0.00014946846680066297
+Logistic Regression,no odds,roc_auc,gender,0.0005992948226997919,0.0007115249967327127
+Logistic Regression,no odds,roc_auc,weight_class,0.00012829426858147476,0.0013256739541309378
+Logistic Regression,no odds,roc_auc,red_stance,-0.0006400595765406969,0.0019220484324866554
+Logistic Regression,no odds,roc_auc,blue_stance,-0.0004074710676130633,0.00026055415501572045
+Logistic Regression,no odds,roc_auc,b_match_wc_rank,5.788242103815788e-05,5.06123657187611e-05
+Logistic Regression,no odds,roc_auc,r_match_wc_rank,-0.0006040595341877064,0.0006165082707834038
+Logistic Regression,no odds,roc_auc,age_diff,0.06580948918763432,0.007452092003918689
+Logistic Regression,no odds,roc_auc,reach_diff,0.0021190613165427254,0.0027356556958922774
+Logistic Regression,no odds,roc_auc,height_diff,0.0003042356520419398,0.0003779641931314178
+Logistic Regression,no odds,roc_auc,wins_diff,-0.00012970603494828482,0.00031658019724212124
+Logistic Regression,no odds,roc_auc,losses_diff,0.015571959496422916,0.003034275878934505
+Logistic Regression,no odds,roc_auc,rounds_diff,0.0014078840092752842,0.0011201625519074788
+Logistic Regression,no odds,roc_auc,title_bout_diff,0.001615590135988354,0.0010133217554468164
+Logistic Regression,no odds,roc_auc,ko_diff,0.00032911803425650366,0.0004950798463114036
+Logistic Regression,no odds,roc_auc,submission_diff,-0.00010958836422163554,0.0007740068049972346
+Logistic Regression,no odds,roc_auc,win_streak_diff,0.011104601299530914,0.0038220357849181397
+Logistic Regression,no odds,roc_auc,lose_streak_diff,0.004221181436684029,0.001666795580091667
+Logistic Regression,no odds,roc_auc,longest_win_streak_diff,0.004812182131978959,0.0019935293453098362
+Logistic Regression,no odds,roc_auc,sig_str_diff,-9.705893771642105e-05,8.701996647311158e-05
+Logistic Regression,no odds,roc_auc,sub_att_diff,0.0002917062255367142,0.0006546881252786571
+Logistic Regression,no odds,roc_auc,td_diff,0.0013748839704517124,0.005102671627505393
+Logistic Regression,no odds,roc_auc,rank_diff,0.00030652977238798673,0.0018069804759747168
+Logistic Regression,no odds,roc_auc,avg_age,-0.00015335312159191482,0.00011881989802764999
+Logistic Regression,no odds,roc_auc,avg_age_c,-0.00015335312159191482,0.00011881989802764999
+Logistic Regression,no odds,roc_auc,age_diff_x_avg,0.0013941192871991693,0.0009150724618250091
+Logistic Regression,no odds,accuracy,gender,0.0012541254125412072,0.002256808052446034
+Logistic Regression,no odds,accuracy,weight_class,0.0048184818481847745,0.003193655552053576
+Logistic Regression,no odds,accuracy,red_stance,-0.0018481848184818794,0.003465189372516615
+Logistic Regression,no odds,accuracy,blue_stance,0.0029042904290428662,0.001072480317443684
+Logistic Regression,no odds,accuracy,b_match_wc_rank,0.0013201320132012917,0.0007810006314322963
+Logistic Regression,no odds,accuracy,r_match_wc_rank,0.003234323432343189,0.002529870349404175
+Logistic Regression,no odds,accuracy,age_diff,0.033465346534653405,0.009217556499416246
+Logistic Regression,no odds,accuracy,reach_diff,0.003366336633663336,0.0038539037827049235
+Logistic Regression,no odds,accuracy,height_diff,0.0019141914191418753,0.0009074407316744189
+Logistic Regression,no odds,accuracy,wins_diff,0.000726072607260686,0.0013018536583046835
+Logistic Regression,no odds,accuracy,losses_diff,0.00811881188118806,0.005777368887692104
+Logistic Regression,no odds,accuracy,rounds_diff,0.0013201320132012917,0.00224810381068336
+Logistic Regression,no odds,accuracy,title_bout_diff,0.002838283828382804,0.0017476174646697891
+Logistic Regression,no odds,accuracy,ko_diff,0.0014521452145214164,0.0017413737238644131
+Logistic Regression,no odds,accuracy,submission_diff,0.003498349834983461,0.0024350979202240044
+Logistic Regression,no odds,accuracy,win_streak_diff,0.004752475247524701,0.006062554457137964
+Logistic Regression,no odds,accuracy,lose_streak_diff,0.00303630363036298,0.0029400735909333375
+Logistic Regression,no odds,accuracy,longest_win_streak_diff,0.005544554455445494,0.0033423073006395142
+Logistic Regression,no odds,accuracy,sig_str_diff,0.0021782178217821468,0.0007260726072607223
+Logistic Regression,no odds,accuracy,sub_att_diff,-0.0006600660066006902,0.001819676402916197
+Logistic Regression,no odds,accuracy,td_diff,0.0008580858085808108,0.00698579385432622
+Logistic Regression,no odds,accuracy,rank_diff,0.0021782178217821468,0.0024706227422063316
+Logistic Regression,no odds,accuracy,avg_age,0.0007920792079207483,0.0009240924092409366
+Logistic Regression,no odds,accuracy,avg_age_c,0.0007920792079207483,0.0009240924092409366
+Logistic Regression,no odds,accuracy,age_diff_x_avg,0.0030363036303630133,0.0030276818326546912
+Logistic Regression,no odds,neg_log_loss,gender,9.195101194648947e-05,0.000332365118417912
+Logistic Regression,no odds,neg_log_loss,weight_class,7.263972663980045e-05,0.0005877231394518678
+Logistic Regression,no odds,neg_log_loss,red_stance,0.00010487346618395232,0.0007423271696480833
+Logistic Regression,no odds,neg_log_loss,blue_stance,-0.0001350618203761811,7.886447793228455e-05
+Logistic Regression,no odds,neg_log_loss,b_match_wc_rank,4.5580391301180966e-05,2.3696440842598152e-05
+Logistic Regression,no odds,neg_log_loss,r_match_wc_rank,-0.0002650582062979856,0.00020986798444383163
+Logistic Regression,no odds,neg_log_loss,age_diff,0.026524825665976783,0.00324669888164278
+Logistic Regression,no odds,neg_log_loss,reach_diff,0.0007663165112671954,0.001073947533484673
+Logistic Regression,no odds,neg_log_loss,height_diff,4.3115552643180346e-05,0.00014275888357063207
+Logistic Regression,no odds,neg_log_loss,wins_diff,-2.2542100749833872e-05,0.0001054825480299295
+Logistic Regression,no odds,neg_log_loss,losses_diff,0.006537416600808421,0.0011450758985038125
+Logistic Regression,no odds,neg_log_loss,rounds_diff,0.0006468994531209638,0.00036224183921601386
+Logistic Regression,no odds,neg_log_loss,title_bout_diff,0.00043407923935424587,0.00037605416308006265
+Logistic Regression,no odds,neg_log_loss,ko_diff,0.0002664463062634015,0.00019541397601702265
+Logistic Regression,no odds,neg_log_loss,submission_diff,-0.0001598477310312707,0.00033294103039481775
+Logistic Regression,no odds,neg_log_loss,win_streak_diff,0.005915850442572412,0.0014903633367397517
+Logistic Regression,no odds,neg_log_loss,lose_streak_diff,0.0020932703333042977,0.0006547288827750096
+Logistic Regression,no odds,neg_log_loss,longest_win_streak_diff,0.002330867108864565,0.0008180043438067418
+Logistic Regression,no odds,neg_log_loss,sig_str_diff,-3.28055646149461e-05,3.270130077755051e-05
+Logistic Regression,no odds,neg_log_loss,sub_att_diff,0.00019965334493712294,0.00022153295596633342
+Logistic Regression,no odds,neg_log_loss,td_diff,0.0009495990258718501,0.0027853996608852277
+Logistic Regression,no odds,neg_log_loss,rank_diff,0.0005345221689246116,0.000629731351566756
+Logistic Regression,no odds,neg_log_loss,avg_age,-4.549388137123911e-05,3.2542388174870334e-05
+Logistic Regression,no odds,neg_log_loss,avg_age_c,-4.549388137123911e-05,3.2542388174845316e-05
+Logistic Regression,no odds,neg_log_loss,age_diff_x_avg,0.0005192093856486113,0.00042092751374570925
+Random Forest,no odds,roc_auc,gender,0.0002138826045677944,0.0002427571163814981
+Random Forest,no odds,roc_auc,weight_class,-0.0010298835645688898,0.0008162403664413445
+Random Forest,no odds,roc_auc,red_stance,0.000892589285399159,0.0013839054940174935
+Random Forest,no odds,roc_auc,blue_stance,-2.929415211075925e-05,0.0003706669824265121
+Random Forest,no odds,roc_auc,b_match_wc_rank,-0.0003998828233915508,0.0005612027684209653
+Random Forest,no odds,roc_auc,r_match_wc_rank,0.00036088277750917497,0.001635927918708672
+Random Forest,no odds,roc_auc,age_diff,0.05396106348360411,0.007192243653827448
+Random Forest,no odds,roc_auc,reach_diff,0.0009642364285134431,0.0015066359322707932
+Random Forest,no odds,roc_auc,height_diff,-0.0003990004694123028,0.0005993382892685895
+Random Forest,no odds,roc_auc,wins_diff,0.00014435311100368108,0.0008439057087491398
+Random Forest,no odds,roc_auc,losses_diff,0.017104961299954525,0.002971163570906862
+Random Forest,no odds,roc_auc,rounds_diff,0.0003917651667825539,0.0014303828355785658
+Random Forest,no odds,roc_auc,title_bout_diff,0.0001672943144639172,0.0004503815450284149
+Random Forest,no odds,roc_auc,ko_diff,0.0006993537639456094,0.0003908611417481961
+Random Forest,no odds,roc_auc,submission_diff,0.00045317700373769253,0.00038912974934216974
+Random Forest,no odds,roc_auc,win_streak_diff,0.009457422891085743,0.0025056312447820704
+Random Forest,no odds,roc_auc,lose_streak_diff,0.0026971796437407548,0.001792740089717743
+Random Forest,no odds,roc_auc,longest_win_streak_diff,0.003885181041389474,0.0010132153999434918
+Random Forest,no odds,roc_auc,sig_str_diff,0.00403659298422705,0.003224693127791441
+Random Forest,no odds,roc_auc,sub_att_diff,0.0013935898748116625,0.002419779759649031
+Random Forest,no odds,roc_auc,td_diff,-0.0006430595800700822,0.004954927962172334
+Random Forest,no odds,roc_auc,rank_diff,0.0008064715370253772,0.0009303616675726195
+Random Forest,no odds,roc_auc,avg_age,-7.111773072673299e-05,0.0004747681359979936
+Random Forest,no odds,roc_auc,avg_age_c,0.0005128241327342908,0.0006181790869919093
+Random Forest,no odds,roc_auc,age_diff_x_avg,0.0020872965732901096,0.0013733121965414622
+Random Forest,no odds,accuracy,gender,-0.00033003300330032294,0.0005321622276104566
+Random Forest,no odds,accuracy,weight_class,-0.0013861386138613984,0.0009542463560924829
+Random Forest,no odds,accuracy,red_stance,-0.0035643564356435562,0.0017262966113032235
+Random Forest,no odds,accuracy,blue_stance,-0.0007920792079208038,0.0006467299650912777
+Random Forest,no odds,accuracy,b_match_wc_rank,-0.0005280528052805433,0.000875676512305048
+Random Forest,no odds,accuracy,r_match_wc_rank,0.002904290429042877,0.0017513530246100915
+Random Forest,no odds,accuracy,age_diff,0.02475247524752474,0.0030139802130246546
+Random Forest,no odds,accuracy,reach_diff,-0.002970297029702973,0.0033299005295390994
+Random Forest,no odds,accuracy,height_diff,-0.00033003300330033405,0.0031827230234300037
+Random Forest,no odds,accuracy,wins_diff,-6.600660066007347e-05,0.0019004858150347102
+Random Forest,no odds,accuracy,losses_diff,0.014389438943894384,0.00483968390226359
+Random Forest,no odds,accuracy,rounds_diff,0.00422442244224418,0.0021122112211221142
+Random Forest,no odds,accuracy,title_bout_diff,-0.0008580858085808663,0.0008880279899058517
+Random Forest,no odds,accuracy,ko_diff,-0.0001980198019802204,0.001321781148151839
+Random Forest,no odds,accuracy,submission_diff,6.600660066005126e-05,0.0008580858085808372
+Random Forest,no odds,accuracy,win_streak_diff,0.006732673267326716,0.003297688712025556
+Random Forest,no odds,accuracy,lose_streak_diff,0.004686468646864639,0.003384407588988586
+Random Forest,no odds,accuracy,longest_win_streak_diff,-0.000990099009901002,0.0018958952628838183
+Random Forest,no odds,accuracy,sig_str_diff,0.005808580858085777,0.0036369577066550232
+Random Forest,no odds,accuracy,sub_att_diff,-0.0006600660066006569,0.002877161018838717
+Random Forest,no odds,accuracy,td_diff,-0.002244224422442276,0.007855617450461691
+Random Forest,no odds,accuracy,rank_diff,0.0001980198019801982,0.0018446453613837508
+Random Forest,no odds,accuracy,avg_age,0.0009900990099009576,0.0011143196710319274
+Random Forest,no odds,accuracy,avg_age_c,0.0003300330033003118,0.0022139286905938247
+Random Forest,no odds,accuracy,age_diff_x_avg,0.0010561056105610645,0.003355317498914536
+Random Forest,no odds,neg_log_loss,gender,5.038258504812543e-05,5.81942944166037e-05
+Random Forest,no odds,neg_log_loss,weight_class,-0.00031604168645487095,0.0001956403990826849
+Random Forest,no odds,neg_log_loss,red_stance,0.0005603804116992462,0.0003513777925802113
+Random Forest,no odds,neg_log_loss,blue_stance,4.022113414351436e-05,9.274212861486873e-05
+Random Forest,no odds,neg_log_loss,b_match_wc_rank,6.4527970960504e-05,0.00015164756655623507
+Random Forest,no odds,neg_log_loss,r_match_wc_rank,0.00027255357989177666,0.00041987056802514686
+Random Forest,no odds,neg_log_loss,age_diff,0.014594219466920499,0.0013890398142810934
+Random Forest,no odds,neg_log_loss,reach_diff,0.00022613354854613687,0.00042415860312007293
+Random Forest,no odds,neg_log_loss,height_diff,6.903153641473203e-05,0.00015785772555560766
+Random Forest,no odds,neg_log_loss,wins_diff,9.138259894236889e-05,0.00024070941809659692
+Random Forest,no odds,neg_log_loss,losses_diff,0.006178871134458863,0.0005560318911485869
+Random Forest,no odds,neg_log_loss,rounds_diff,0.0009648436425761409,0.00036336022244136233
+Random Forest,no odds,neg_log_loss,title_bout_diff,-1.1033698977536144e-05,9.393312584311609e-05
+Random Forest,no odds,neg_log_loss,ko_diff,0.00023704725923332504,0.00010085243786505513
+Random Forest,no odds,neg_log_loss,submission_diff,0.00012317831552639548,0.00012502975516723858
+Random Forest,no odds,neg_log_loss,win_streak_diff,0.0038857683979931614,0.0006510370901604938
+Random Forest,no odds,neg_log_loss,lose_streak_diff,0.001316507359438801,0.0005405960911965883
+Random Forest,no odds,neg_log_loss,longest_win_streak_diff,0.001111918801727041,0.0003207473762452812
+Random Forest,no odds,neg_log_loss,sig_str_diff,0.0005139322889418319,0.0007712455290666325
+Random Forest,no odds,neg_log_loss,sub_att_diff,0.0004976527726263558,0.0006215236246463378
+Random Forest,no odds,neg_log_loss,td_diff,-0.0001095219854326035,0.0014980316513153811
+Random Forest,no odds,neg_log_loss,rank_diff,0.0002978121797620581,0.0002658088013381792
+Random Forest,no odds,neg_log_loss,avg_age,0.0002760030528483282,0.00014805711016459437
+Random Forest,no odds,neg_log_loss,avg_age_c,0.00035759926209513184,0.0001582680258689404
+Random Forest,no odds,neg_log_loss,age_diff_x_avg,0.0013296871271741173,0.0003297611260992152
+XGBClassifier,no odds,roc_auc,gender,0.0,0.0
+XGBClassifier,no odds,roc_auc,weight_class,-0.00011858837480985818,7.43685706037411e-05
+XGBClassifier,no odds,roc_auc,red_stance,-3.970592906580306e-05,0.0004402239001808676
+XGBClassifier,no odds,roc_auc,blue_stance,3.229415564021121e-05,3.0637383494828495e-05
+XGBClassifier,no odds,roc_auc,b_match_wc_rank,0.0,0.0
+XGBClassifier,no odds,roc_auc,r_match_wc_rank,0.00016235313218013748,0.00134279248114157
+XGBClassifier,no odds,roc_auc,age_diff,0.08715689665517254,0.00812353439252206
+XGBClassifier,no odds,roc_auc,reach_diff,0.00037129455446415215,0.0008393156609032882
+XGBClassifier,no odds,roc_auc,height_diff,6.229419093434219e-05,0.00026113390862659306
+XGBClassifier,no odds,roc_auc,wins_diff,3.22941556401446e-05,0.00016642431111066935
+XGBClassifier,no odds,roc_auc,losses_diff,0.011553719474964086,0.002420544185247712
+XGBClassifier,no odds,roc_auc,rounds_diff,7.16471431142951e-05,0.0001280895982465117
+XGBClassifier,no odds,roc_auc,title_bout_diff,-1.7294137993073556e-05,0.00023671279739623845
+XGBClassifier,no odds,roc_auc,ko_diff,6.317654491354574e-05,4.767847714323939e-05
+XGBClassifier,no odds,roc_auc,submission_diff,9.229422622846206e-05,8.333850850194089e-05
+XGBClassifier,no odds,roc_auc,win_streak_diff,0.01028771798555057,0.0021713990038317245
+XGBClassifier,no odds,roc_auc,lose_streak_diff,0.001255501477060561,0.0005391634007861353
+XGBClassifier,no odds,roc_auc,longest_win_streak_diff,0.0021997967056431424,0.000697218052815502
+XGBClassifier,no odds,roc_auc,sig_str_diff,0.004092622461908802,0.0028314230797725857
+XGBClassifier,no odds,roc_auc,sub_att_diff,2.4441205224934315e-05,0.001060368875278248
+XGBClassifier,no odds,roc_auc,td_diff,0.0012625603088944782,0.006278674152028267
+XGBClassifier,no odds,roc_auc,rank_diff,0.0011749425587559647,0.0006772744990883214
+XGBClassifier,no odds,roc_auc,avg_age,-3.344121581322357e-05,7.743172742457454e-05
+XGBClassifier,no odds,roc_auc,avg_age_c,-4.288240339107574e-05,7.365431013373817e-05
+XGBClassifier,no odds,roc_auc,age_diff_x_avg,-8.064715370252884e-05,0.00022402903241557597
+XGBClassifier,no odds,accuracy,gender,0.0,0.0
+XGBClassifier,no odds,accuracy,weight_class,0.00013201320132012474,0.0004939481698711201
+XGBClassifier,no odds,accuracy,red_stance,0.0012541254125412516,0.0009988611188397
+XGBClassifier,no odds,accuracy,blue_stance,0.0,0.0
+XGBClassifier,no odds,accuracy,b_match_wc_rank,0.0,0.0
+XGBClassifier,no odds,accuracy,r_match_wc_rank,0.0029042904290429218,0.0016222053765603255
+XGBClassifier,no odds,accuracy,age_diff,0.03518151815181518,0.00404798629873583
+XGBClassifier,no odds,accuracy,reach_diff,-0.002376237623762367,0.0012242400654119807
+XGBClassifier,no odds,accuracy,height_diff,0.00013201320132014694,0.0009240924092409096
+XGBClassifier,no odds,accuracy,wins_diff,0.0008580858085808551,0.0005940594059406081
+XGBClassifier,no odds,accuracy,losses_diff,0.007260726072607271,0.0042264846451702
+XGBClassifier,no odds,accuracy,rounds_diff,0.0014521452145214609,0.000710912845826333
+XGBClassifier,no odds,accuracy,title_bout_diff,-0.0003960396039604075,0.0011123630063599212
+XGBClassifier,no odds,accuracy,ko_diff,0.0,0.0
+XGBClassifier,no odds,accuracy,submission_diff,0.0,0.0
+XGBClassifier,no odds,accuracy,win_streak_diff,0.008712871287128731,0.0025700227503540206
+XGBClassifier,no odds,accuracy,lose_streak_diff,0.0030363036303630575,0.0010724803174436783
+XGBClassifier,no odds,accuracy,longest_win_streak_diff,0.0,0.001866948597192196
+XGBClassifier,no odds,accuracy,sig_str_diff,0.005148514851485142,0.007150681221888223
+XGBClassifier,no odds,accuracy,sub_att_diff,-0.003498349834983483,0.001796786480371759
+XGBClassifier,no odds,accuracy,td_diff,0.0007260726072607415,0.006045642529394262
+XGBClassifier,no odds,accuracy,rank_diff,0.003498349834983505,0.0005940594059405933
+XGBClassifier,no odds,accuracy,avg_age,6.600660066006237e-05,0.000355456422913149
+XGBClassifier,no odds,accuracy,avg_age_c,-6.600660066006237e-05,0.0001980198019801871
+XGBClassifier,no odds,accuracy,age_diff_x_avg,0.0011221122112211157,0.0006633581268066725
+XGBClassifier,no odds,neg_log_loss,gender,0.0,0.0
+XGBClassifier,no odds,neg_log_loss,weight_class,-4.8500299453735354e-05,2.3031531682726292e-05
+XGBClassifier,no odds,neg_log_loss,red_stance,2.9140710830688475e-05,9.904454680745197e-05
+XGBClassifier,no odds,neg_log_loss,blue_stance,7.665157318115234e-06,5.039339191264379e-06
+XGBClassifier,no odds,neg_log_loss,b_match_wc_rank,0.0,0.0
+XGBClassifier,no odds,neg_log_loss,r_match_wc_rank,6.589293479919434e-05,0.00042856706624434744
+XGBClassifier,no odds,neg_log_loss,age_diff,0.022972959280014037,0.0020310655730121714
+XGBClassifier,no odds,neg_log_loss,reach_diff,5.991458892822266e-05,0.00023406795578635807
+XGBClassifier,no odds,neg_log_loss,height_diff,1.0192394256591798e-06,5.1401736947993425e-05
+XGBClassifier,no odds,neg_log_loss,wins_diff,2.117753028869629e-05,3.5821806864005996e-05
+XGBClassifier,no odds,neg_log_loss,losses_diff,0.0040731668472290036,0.0006411089995557069
+XGBClassifier,no odds,neg_log_loss,rounds_diff,1.5228986740112305e-05,4.011786026741448e-05
+XGBClassifier,no odds,neg_log_loss,title_bout_diff,-0.00022420287132263184,7.837193164497204e-05
+XGBClassifier,no odds,neg_log_loss,ko_diff,2.7447938919067383e-05,1.0349029704518735e-05
+XGBClassifier,no odds,neg_log_loss,submission_diff,4.4399499893188475e-05,2.1433426649782886e-05
+XGBClassifier,no odds,neg_log_loss,win_streak_diff,0.0037935256958007814,0.0005269674702724874
+XGBClassifier,no odds,neg_log_loss,lose_streak_diff,0.00045874714851379395,0.0001391523103969185
+XGBClassifier,no odds,neg_log_loss,longest_win_streak_diff,0.0006158351898193359,0.00023117052243631445
+XGBClassifier,no odds,neg_log_loss,sig_str_diff,0.0007918357849121093,0.0005756033561816653
+XGBClassifier,no odds,neg_log_loss,sub_att_diff,-1.8894672393798828e-06,0.0002990694564982124
+XGBClassifier,no odds,neg_log_loss,td_diff,0.0002643883228302002,0.0017890934814620949
+XGBClassifier,no odds,neg_log_loss,rank_diff,0.00024476051330566404,0.0001859297226967072
+XGBClassifier,no odds,neg_log_loss,avg_age,-1.722574234008789e-05,1.7057616377870933e-05
+XGBClassifier,no odds,neg_log_loss,avg_age_c,-6.4373016357421875e-06,1.7272804905929682e-05
+XGBClassifier,no odds,neg_log_loss,age_diff_x_avg,6.495118141174317e-05,7.544613185479315e-05
+CatBoost,no odds,roc_auc,gender,-0.0006409419305198783,0.0003787425084308888
+CatBoost,no odds,roc_auc,weight_class,-0.0005571183024920656,0.00021027596850395217
+CatBoost,no odds,roc_auc,red_stance,-0.0018118256609713113,0.0019420019042990632
+CatBoost,no odds,roc_auc,blue_stance,-0.0006232948509350522,0.00036189406131961445
+CatBoost,no odds,roc_auc,b_match_wc_rank,-0.00012070602435992894,0.0002633925798613422
+CatBoost,no odds,roc_auc,r_match_wc_rank,-0.0011241189695516795,0.0014619831691735426
+CatBoost,no odds,roc_auc,age_diff,0.07616867784550344,0.008023048815843446
+CatBoost,no odds,roc_auc,reach_diff,0.0001284707393774398,0.00166334650938267
+CatBoost,no odds,roc_auc,height_diff,-0.000562765367959217,0.0005485497255866746
+CatBoost,no odds,roc_auc,wins_diff,-0.00022305908595178227,0.0005662041215527727
+CatBoost,no odds,roc_auc,losses_diff,0.012462191131989608,0.002427104478175598
+CatBoost,no odds,roc_auc,rounds_diff,9.247069702442712e-05,0.0005818417429721093
+CatBoost,no odds,roc_auc,title_bout_diff,0.0005138829575094706,0.0005954396622029883
+CatBoost,no odds,roc_auc,ko_diff,-3.0176506089940602e-05,0.0005305966232615031
+CatBoost,no odds,roc_auc,submission_diff,0.0002555297123879474,0.00030442393847916743
+CatBoost,no odds,roc_auc,win_streak_diff,0.010342070990671826,0.0021628668867191172
+CatBoost,no odds,roc_auc,lose_streak_diff,0.0019297081525978977,0.0012267881778194616
+CatBoost,no odds,roc_auc,longest_win_streak_diff,0.0031053565945372563,0.0015167758938474279
+CatBoost,no odds,roc_auc,sig_str_diff,0.0016718843198640031,0.0031136519621581967
+CatBoost,no odds,roc_auc,sub_att_diff,7.235302629774454e-05,0.0017782985826665378
+CatBoost,no odds,roc_auc,td_diff,0.00010164717840851489,0.00582844661569317
+CatBoost,no odds,roc_auc,rank_diff,0.0012527661797250178,0.0009013821633875001
+CatBoost,no odds,roc_auc,avg_age,4.7294173287359964e-05,0.0004689847444551639
+CatBoost,no odds,roc_auc,avg_age_c,-0.0002440591106577017,0.0003506311294359822
+CatBoost,no odds,roc_auc,age_diff_x_avg,0.0011830602153650393,0.0009741492274239791
+CatBoost,no odds,accuracy,gender,0.0015841584158415745,0.0012593256784382252
+CatBoost,no odds,accuracy,weight_class,0.003564356435643579,0.001112363006359929
+CatBoost,no odds,accuracy,red_stance,0.0025742574257425653,0.002883967297023563
+CatBoost,no odds,accuracy,blue_stance,0.0024422442244224295,0.0005155280314129705
+CatBoost,no odds,accuracy,b_match_wc_rank,0.0008580858085808551,0.0010663692687394937
+CatBoost,no odds,accuracy,r_match_wc_rank,0.0044884488448844965,0.0020621121256519026
+CatBoost,no odds,accuracy,age_diff,0.041122112211221105,0.007368240879057951
+CatBoost,no odds,accuracy,reach_diff,0.0031023102310231087,0.0031386121261963848
+CatBoost,no odds,accuracy,height_diff,0.003102310231023098,0.0017476174646697882
+CatBoost,no odds,accuracy,wins_diff,0.0041584158415841396,0.0015066286746552306
+CatBoost,no odds,accuracy,losses_diff,0.00950495049504949,0.003182038493252508
+CatBoost,no odds,accuracy,rounds_diff,0.0010561056105610534,0.002328078163504768
+CatBoost,no odds,accuracy,title_bout_diff,0.0044884488448844965,0.0017413737238643984
+CatBoost,no odds,accuracy,ko_diff,0.0030363036303630462,0.0015951215806725473
+CatBoost,no odds,accuracy,submission_diff,0.0017821782178217838,0.0010663692687395206
+CatBoost,no odds,accuracy,win_streak_diff,0.012607260726072577,0.003212697960036423
+CatBoost,no odds,accuracy,lose_streak_diff,0.010825082508250794,0.001871610149010931
+CatBoost,no odds,accuracy,longest_win_streak_diff,0.00462046204620461,0.002469740849355746
+CatBoost,no odds,accuracy,sig_str_diff,0.005742574257425748,0.005844846285745974
+CatBoost,no odds,accuracy,sub_att_diff,0.004686468646864683,0.00251258961197022
+CatBoost,no odds,accuracy,td_diff,0.004422442244224401,0.0056245215558475645
+CatBoost,no odds,accuracy,rank_diff,0.0031023102310230866,0.0017225067129636854
+CatBoost,no odds,accuracy,avg_age,0.0020462046204620665,0.0015465840942389501
+CatBoost,no odds,accuracy,avg_age_c,0.0008580858085808441,0.0016970244398920732
+CatBoost,no odds,accuracy,age_diff_x_avg,0.003960396039603975,0.002573411048134389
+CatBoost,no odds,neg_log_loss,gender,-0.00023924770815426656,0.00013439871299707797
+CatBoost,no odds,neg_log_loss,weight_class,-0.00017350127347656174,5.324440215535607e-05
+CatBoost,no odds,neg_log_loss,red_stance,-0.00011555167390017162,0.0005890275091377094
+CatBoost,no odds,neg_log_loss,blue_stance,-0.0002308992001519905,0.0001195178560308852
+CatBoost,no odds,neg_log_loss,b_match_wc_rank,4.2767738077442716e-05,9.801876827222215e-05
+CatBoost,no odds,neg_log_loss,r_match_wc_rank,-0.00039219196739659345,0.0005331249896990764
+CatBoost,no odds,neg_log_loss,age_diff,0.024529122550327,0.0025749677170547893
+CatBoost,no odds,neg_log_loss,reach_diff,9.215094190163642e-05,0.0005637098981953388
+CatBoost,no odds,neg_log_loss,height_diff,-0.00022191813494153444,0.00018884691768246967
+CatBoost,no odds,neg_log_loss,wins_diff,-9.174578675995582e-05,0.000157877884380116
+CatBoost,no odds,neg_log_loss,losses_diff,0.005307327871944423,0.0006565046161123967
+CatBoost,no odds,neg_log_loss,rounds_diff,0.00014544374745207868,0.00023183908089395588
+CatBoost,no odds,neg_log_loss,title_bout_diff,0.00010670224730630062,0.0001971297406170344
+CatBoost,no odds,neg_log_loss,ko_diff,2.2235981312657137e-05,0.0002424233535744415
+CatBoost,no odds,neg_log_loss,submission_diff,-1.9004607397921093e-05,0.0001235989753595542
+CatBoost,no odds,neg_log_loss,win_streak_diff,0.004762513778233857,0.0007409895535815533
+CatBoost,no odds,neg_log_loss,lose_streak_diff,0.001008234155449994,0.0003829592344211861
+CatBoost,no odds,neg_log_loss,longest_win_streak_diff,0.0013494709474449861,0.0005529201304298418
+CatBoost,no odds,neg_log_loss,sig_str_diff,0.000439990750196384,0.0007165839119105808
+CatBoost,no odds,neg_log_loss,sub_att_diff,0.00016307900737358994,0.0005562777631479867
+CatBoost,no odds,neg_log_loss,td_diff,0.0005011367614582874,0.00214829174734096
+CatBoost,no odds,neg_log_loss,rank_diff,0.0005699310909171307,0.00028849337003425765
+CatBoost,no odds,neg_log_loss,avg_age,0.00010160575616068313,0.00011066676902683722
+CatBoost,no odds,neg_log_loss,avg_age_c,-7.536072111199443e-05,0.0001248996461833209
+CatBoost,no odds,neg_log_loss,age_diff_x_avg,0.000755832877383622,0.00030117642356764364
