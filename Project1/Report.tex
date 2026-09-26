@@ -35,9 +35,7 @@ long and lustrious history, finding a suitable dataset was not a a difficult tas
 provided just that.\par
 
 With records dating back to March 2010 all the way to May of this year, it covers over 7000 fights and includes 57 features that describe each fighters stats., physical attributes and betting odds, and more.
-The set also includes a binary classifier on the winning figher (whether the figher in the red corner won or lost), which works as a great predictor feature.\par
-
-Given this predictor feature we want to take note of the given baseline: the red figher has a win rate of 58\% against blue's 42\%, which is a significant gap.\par
+Here our target label is \verb|red_winner| (whether the figher in the red corner won or lost), and from the testing set the red figher has a win rate of 55.6\% against blue's 44.4\%; a significant gap.\par
 
 With this benchmark, the main goal of this project then becomes two-fold:  
 \begin{itemize}
@@ -81,18 +79,19 @@ model exactly who won (loser's return being 0) and in turn lead to a 100\% model
 
 \paragraph*{Stance Outliers}
 We noticed in the \verb|red\_stance| and \verb|blue\_stance| columns that there were a few rows with faulty classifications and missing data ("Switch " with a trailing space and "Unknown"),
-that needed to be excluded. We also found one other classification called "Open Stance", which describes an opposite stance matchup, which was only found in the \verb|blue\_stance column|. 
-Since we already have the three main stances ("Orthodox", "Southpaw" and "Switch") it becomes a redundant categorical value and only creates conflict.
+that needed to be excluded. We also found one other classification called "Open Stance", which describes an opposite stance matchup, and since we already have the three main stances present
+("Orthodox", "Southpaw" and "Switch") it becomes a redundant categorical value and only creates conflict.
 
 \paragraph*{Weight Class Outliers}
 In the column \verb|weight\_class| there we found the value "Catch Weight" which describes fights where one or both fighters missed their target weight and therefore fought outside 
-one of the 12 regulartory weight classes. This is by definition an outlier to the standard procedure of an MMA bout and should therefore be excluded.
+one of the 12 regulartory weight classes. Since these fights can't be mapped to the standard list of weight classes, we decided to exclude them.
 
 \paragraph*{Outliers in Difference Columns}
 In the \verb|rounds\_diff| column we found one extreme outlier where the value was over 440. We excluded this due to it being an impossible data value when
 looking at either fighters records (i.e. total fights).\\
 In the \verb|reach\_diff| column there is a single outlier where the reach difference was over 186 caused by one of the fighters reach being measured 0 cm.
 This is an obivious error caused by a missing data value so we naturally excluded it.
+
 \subsubsection{Classifications}
 
 We decided to break down the dataset into the following classes:
@@ -133,7 +132,7 @@ the \verb|odds\_diff| feature; so we can see first hand how much it impacts the 
 
 \subsubsection{Feature Engineering}
 The impact of the age difference between two fighters varies significantly depending on where said difference occurs on the age-axis. In a bout between a 25 year old and a 28 year old, the age difference
-is not nearly as significant as one between a 32 year old and a 35 year old; and the data shows this. In title fights, we see that fighters over 35 have a collective win-loss record of 50-75 across all weight classes:\par
+is not nearly as significant as one between a 32 year old and a 35 year old; and the data shows this. In title fights, fighters 35 and older have a collective win-loss record of 50-75 across all weight classes:\par
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{media/title_winrate_by_age.png}
@@ -157,8 +156,6 @@ effect should be amplified or dampened based on how old the pair is on average.
 When it came to splitting the data into dedicated training- and test sets, two questions arose: on which variable does the splitting occur and by how much. We ultimately landed on \verb|fight_date|
 as our splitting variable due to it providing us two complete datasets that include every selected feature, and selecting June 1st. 2023 as our splitting point gave us clean 80/20 split.   
 
-# TUMI 1 ===========================
-
 \paragraph*{Finding the right algorithm's for our models}
 some intro text ( WIP: not sure if we need some text here)
 
@@ -167,7 +164,7 @@ Why did we choose logistic regression as our baseline for accuracy?.
 
 Pros:
 \begin{itemize}
-    \item Since our data is split between \_diff features and other features, and the \_diff features are numeric, that is what logistic regression is built for. So for example, each unit of reach advantage shifts the odds of red winning by some amount.
+    \item Since our data is split between \verb|\_diff| features and other features, and the \verb|\_diff| features are numeric, that is what logistic regression is built for. So for example, each unit of reach advantage shifts the odds of red winning by some amount.
     \item Another reason for using logistic regression is it's fast to train and does not take a lot of setup.
 \end{itemize}
 
@@ -182,7 +179,7 @@ Why include it: To establish a baseline for comparison, we will be comparing the
 The reasons we chose random forest for one of our models are.
 
 \begin{itemize}
-    \item Handles the mix of numeric \_diff and categorical features without needing scaling, and works well with on-hot encoded categorical features.
+    \item Handles the mix of numeric \verb|\_diff| and categorical features without needing scaling, and works well with on-hot encoded categorical features.
     \item A major benefit of random forests is that they can capture non-linear relationships and interactions automatically, for example, the takedown advantage matters a lot more when the weight difference between the fighters is larger.
 \end{itemize}
 
@@ -208,7 +205,8 @@ The reasons we chose CatBoost for one of our models are.
 Pros:
 \begin{itemize}
     \item Handles categorical features natively, instead of one-hot encoding, this is very useful since we have a lot of categorical features.
-    \item CatBoost can make use of categorical features directly and can capture relationships between categorical variables, such as red_stance and blue_stance. This has a big impact on real fight analysis,For example, the interaction between red_stance and blue_stance could potentially be relevant to fight outcomes.
+    \item CatBoost can make use of categorical features directly and can capture relationships between categorical variables, such as \verb|red\_stance| and \verb|blue\_stance|. This has a big impact on real fight analysis.
+    For example, the interaction between \verb|red\_stance| and \verb|blue\_stance| could potentially be relevant to fight outcomes.
 \end{itemize}
 Cons:
 \begin{itemize}
@@ -216,8 +214,6 @@ Cons:
 \end{itemize}
 
 Why include it: this gives a good way to test whether the native category handling matters, and a good way to find that out is compare XGBoost vs CatBoost.
-
-# TUMI 1 ===========================
 
 \section{Results}
 Report on the performance for the different models and hyperparameters. Essentially, take the numbers you got as output of your program and put them into a nice 
