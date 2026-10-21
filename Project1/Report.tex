@@ -218,6 +218,30 @@ Why include it: this gives a good way to test whether the native category handli
 Report on the performance for the different models and hyperparameters. Essentially, take the numbers you got as output of your program and put them into a nice 
 form (plots, tables, ...) that makes them easier to interpret and shows, for example, how the choice of values for different hyperparameters influences the performance.
 
+\begin{table}[htbp]
+  \centering
+  \caption{Model comparison: candidates selected by CV ROC-AUC, then scored once on the test set.}
+  \label{tab:model-summary}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{l l S[table-format=1.4] S[table-format=1.4] S[table-format=1.4] S[table-format=1.4] S[table-format=1.4] S[table-format=2.1]}
+    \toprule
+    \textbf{Model} & \textbf{Features} & \textbf{Test Acc.} & \textbf{Test AUC} & \textbf{Test LogLoss} & \textbf{CV AUC} & \textbf{CV Acc.} & \textbf{Fit (s)} \\
+    \midrule
+    Majority class (always red) & -- & 0.5558 & 0.5000 & 0.6869 & {--} & {--} & {--} \\
+    Betting favorite            & odds only & 0.7043 & 0.7563 & 0.5809 & {--} & {--} & {--} \\
+    Logistic Regression         & odds & 0.7023 & 0.7597 & 0.5839 & 0.7039 & 0.6557 & 0.8 \\
+    Random Forest               & odds & 0.6990 & 0.7528 & 0.5886 & 0.6969 & 0.6574 & 54.2 \\
+    XGBClassifier                & odds & 0.6964 & 0.7547 & 0.5869 & 0.6990 & 0.6597 & 16.9 \\
+    CatBoost                     & odds & 0.6964 & 0.7555 & 0.5850 & 0.6974 & 0.6561 & 40.7 \\
+    Logistic Regression         & no odds & 0.6106 & 0.6543 & 0.6502 & 0.6227 & 0.6066 & 1.0 \\
+    Random Forest               & no odds & 0.6040 & 0.6535 & 0.6581 & 0.6121 & 0.5913 & 53.8 \\
+    XGBClassifier                & no odds & 0.5993 & 0.6456 & 0.6601 & 0.6074 & 0.6008 & 19.9 \\
+    CatBoost                     & no odds & 0.6119 & 0.6478 & 0.6557 & 0.6096 & 0.6013 & 40.4 \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table}
+
 \section{Conclusion}
 Interpret the results and compare with results in the literature (if possible). What can be said about the performance of different models on the problem? 
 How important is the choice of the hyperparameters for the performance of the different models?
