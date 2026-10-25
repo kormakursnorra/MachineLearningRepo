@@ -132,7 +132,4 @@ The previous problem should next be adjusted to include a constraint on the **ex
 
 ## 6 Report
 
-Write a report. It does **not** have to be structured like a research paper. Rather
-structure it according to the tasks and describe the process, data, results, an-
-swers to the questions and discuss your findings. Make sure for each task to
-also describe the functions you created and the logic behind them.
+Write a report. It does **not** have to be structured like a research paper. Rather structure it according to the tasks and describe the process, data, results, answers to the questions and discuss your findings. Make sure for each task to also describe the functions you created and the logic behind them.
